@@ -1,0 +1,53 @@
+<header>
+  <h1>Tenants</h1>
+  <h2>Edit tenant {{tenant.Name}}</h2>
+</header>
+<main>
+  <form>
+    <div class="form-group">
+      <label>Name</label>
+      <input [(ngModel)]="tenant.Name" name="name" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Address</label>
+      <input [(ngModel)]="tenant.Address1" name="address1" class="form-control">
+    </div>
+    <div class="form-group">
+      <label></label>
+      <input [(ngModel)]="tenant.Address2" name="address2" class="form-control">
+    </div>
+    <div class="form-group">
+      <label></label>
+      <input [(ngModel)]="tenant.Address3" name="address3" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Zip code</label>
+      <input [(ngModel)]="tenant.Zipcode" name="zipcode" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>City</label>
+      <input [(ngModel)]="tenant.City" name="city" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Phone number</label>
+      <input [(ngModel)]="tenant.Phonenumber" name="phonenumber" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>IBAN</label>
+      <input [(ngModel)]="tenant.IBAN" name="iban" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>BIC</label>
+      <input [(ngModel)]="tenant.BIC" name="bic" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Invoice number scheme</label>
+      <input [(ngModel)]="tenant.InvoiceNumberScheme" name="invoiceNumberScheme" class="form-control">
+    </div>
+    <div class="form-group">
+      <label></label>
+      <input [(ngModel)]="tenant.TaxIdentificationNumber" name="taxIdentificationNumber" class="form-control">
+    </div>
+    <button class="btn btn-default" (click)="save()">Save</button>
+  </form>
+</main>
