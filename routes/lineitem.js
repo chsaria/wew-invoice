@@ -21,7 +21,10 @@ router.get('/:id', function(req, res, next){
 
 /* POST new lineItem */
 router.post('/', function(req, res, next){
-    LineItem.create(req.body, function(err, post){
+    var newLineItem = req.body;
+    if(typeof newLineItem._id !== 'undefined')
+    delete newLineItem._id;
+    LineItem.create(newLineItem, function(err, post){
         if(err) return next(err);
         res.json(post);
     });

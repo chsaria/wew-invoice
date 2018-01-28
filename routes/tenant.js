@@ -22,7 +22,11 @@ router.get('/:id', function(req, res, next){
 
 /* POST new tenant */
 router.post('/', function(req, res, next){
-    Tenant.create(req.body, function(err, post){
+    var newTenant = req.body;
+    if(typeof newTenant._id !== 'undefined')
+        delete newTenant._id;
+    Tenant.create(newTenant, function(err, post){
+        console.log(err);
         if(err) return next(err);
         res.json(post);
     });

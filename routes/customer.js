@@ -21,7 +21,10 @@ router.get('/:id', function(req, res, next){
 
 /* POST new customer */
 router.post('/', function(req, res, next){
-    Customer.create(req.body, function(err, post){
+    var newCustomer = req.body;
+    if(typeof newCustomer._id !== 'undefined')
+    delete newCustomer._id;
+    Customer.create(newCustomer, function(err, post){
         if(err) return next(err);
         res.json(post);
     });

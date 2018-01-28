@@ -21,7 +21,10 @@ router.get('/:id', function(req, res, next){
 
 /* POST new position */
 router.post('/', function(req, res, next){
-    Position.create(req.body, function(err, post){
+    var newPosition = req.body;
+    if(typeof newPosition._id !== 'undefined')
+    delete newPosition._id;
+    Position.create(newPosition, function(err, post){
         if(err) return next(err);
         res.json(post);
     });

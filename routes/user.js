@@ -22,7 +22,10 @@ router.get('/:id', function(req, res, next){
 
 /* POST new user */
 router.post('/', function(req, res, next){
-    User.create(req.body, function(err, post){
+    var newUser = req.body;
+    if(typeof newUser._id !== 'undefined')
+    delete newUser._id;
+    User.create(newUser, function(err, post){
         if(err) return next(err);
         res.json(post);
     });

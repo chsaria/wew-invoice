@@ -21,7 +21,10 @@ router.get('/:id', function(req, res, next){
 
 /* POST new invoice */
 router.post('/', function(req, res, next){
-    Invoice.create(req.body, function(err, post){
+    var newInvoice = req.body;
+    if(typeof newInvoice._id !== 'undefined')
+    delete newInvoice._id;
+    Invoice.create(newInvoice, function(err, post){
         if(err) return next(err);
         res.json(post);
     });
