@@ -1,0 +1,37 @@
+  <header>
+    <h1>Customers</h1>
+    <h2>Edit customer {{customer.Name}}</h2>
+  </header>
+  <main>
+    <form>
+      <div class="form-group">
+        <label>Name</label>
+        <input [(ngModel)]="customer.Name" name="name" class="form-control">
+      </div>
+      <div class="form-group">
+        <label>Address</label>
+        <input [(ngModel)]="customer.Address1" name="address1" class="form-control">
+      </div>
+      <div class="form-group">
+        <label></label>
+        <input [(ngModel)]="customer.Address2" name="address2" class="form-control">
+      </div>
+      <div class="form-group">
+        <label></label>
+        <input [(ngModel)]="customer.Address3" name="address3" class="form-control">
+      </div>
+      <div class="form-group">
+        <label>Zip code</label>
+        <input [(ngModel)]="customer.Zipcode" name="zipcode" class="form-control">
+      </div>
+      <div class="form-group">
+        <label>City</label>
+        <input [(ngModel)]="customer.City" name="city" class="form-control">
+      </div>
+      <div class="form-group">
+        <label>Phone number</label>
+        <input [(ngModel)]="customer.Phonenumber" name="phonenumber" class="form-control">
+      </div>
+      <button class="btn btn-default" (click)="save()">Save</button>
+    </form>
+  </main>

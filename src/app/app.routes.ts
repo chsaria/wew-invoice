@@ -1,3 +1,4 @@
+import { CustomerSearchComponent } from './customer-management/customer-search/customer-search.component';
 import { TenantSearchComponent } from './tenant-management/tenant-search/tenant-search.component';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
@@ -25,6 +26,10 @@ export const APP_ROUTES: Routes = [
     {
         path: 'users',
         component: UserSearchComponent
+    },
+    {
+        path: 'customers',
+        component: CustomerSearchComponent
     },
     {
         path: '**',

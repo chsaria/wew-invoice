@@ -1,3 +1,4 @@
+import { CustomerManagementModule } from './customer-management/customer-management.module';
 import { AuthService } from './shared/auth/auth.service';
 import { UserManagementModule } from './user-management/user-management.module';
 import { SharedModule } from './shared/shared.module';
@@ -27,6 +28,7 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     TenantManagementModule,
     UserManagementModule,
+    CustomerManagementModule,
     RouterModule.forRoot(APP_ROUTES),
     FormsModule
   ],

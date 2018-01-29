@@ -1,0 +1,20 @@
+<div>
+  <div>C: {{item.Name}}</div>
+</div>
+<app-card>
+  <div card-header>Customer: {{item.Name}}</div>
+  <div card-content>
+    <dl>
+      <dt>Name</dt>
+      <dd>{{item.Name}}</dd>
+      <dt>Zipcode</dt>
+      <dd>{{item.Zipcode}}</dd>
+      <dt>City</dt>
+      <dd>{{item.City}}</dd>
+    </dl>
+  </div>
+  <div card-footer>
+    <button [routerLink]="['/customers/' + item._id]">Edit</button>
+    <button>Delete</button>
+  </div>
+</app-card>
