@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './Login/Login.component';
 import { UserSearchComponent } from './user-management/user-search/user-search.component';
+import { PositionSearchComponent } from './position-management/position-search/position-search.component';
 
 export const APP_ROUTES: Routes = [
     {
@@ -30,6 +31,10 @@ export const APP_ROUTES: Routes = [
     {
         path: 'customers',
         component: CustomerSearchComponent
+    },
+    {
+      path: 'positions',
+      component: PositionSearchComponent
     },
     {
         path: '**',

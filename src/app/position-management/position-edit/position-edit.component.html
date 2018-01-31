@@ -1,0 +1,37 @@
+<header>
+    <h1>Positions</h1>
+    <h2>Edit position {{position.Name}}</h2>
+  </header>
+  <main>
+    <form>
+      <div class="form-group">
+        <label>Short</label>
+        <input [(ngModel)]="position.Short" name="short" class="form-control">
+      </div>
+      <div class="form-group">
+        <label>Name</label>
+        <input [(ngModel)]="position.name" name="name" class="form-control">
+      </div>
+      <div class="form-group">
+        <label>NetDefaultPrice</label>
+        <input [(ngModel)]="position.NetDefaultPrice" name="address2" class="form-control">
+      </div>
+      <div class="form-group">
+        <label>TaxPercentage</label>
+        <input [(ngModel)]="position.TaxPercentage" name="address3" class="form-control">
+      </div>
+      <div class="form-group">
+        <label>Unit</label>
+        <input [(ngModel)]="position.Unit" name="zipcode" class="form-control">
+      </div>
+      <div class="form-group">
+        <label>CreatedAtUtc</label>
+        <input [(ngModel)]="position.CreatedAtUtc" name="city" class="form-control">
+      </div>
+      <div class="form-group">
+        <label>ModifiedAtUtc</label>
+        <input [(ngModel)]="position.ModifiedAtUtc" name="phonenumber" class="form-control">
+      </div>
+      <button class="btn btn-default" (click)="save()">Save</button>
+    </form>
+  </main>

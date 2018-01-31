@@ -1,7 +1,7 @@
-import { Customer } from './../../entities/customer';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CustomerService } from '../customer-service/customer.service';
+import { Customer } from '../../entities/customer';
 
 @Component({
   selector: 'app-customer-edit',
@@ -38,6 +38,7 @@ export class CustomerEditComponent implements OnInit {
               City: '',
               Zipcode: '',
               Phonenumber: '',
+              Tenant: null,
               CreatedAtUtc: null,
               ModifiedAtUtc: null,
             };

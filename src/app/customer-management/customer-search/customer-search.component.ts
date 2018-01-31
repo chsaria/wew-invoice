@@ -11,7 +11,7 @@ import { CustomerService } from '../customer-service/customer.service';
 })
 export class CustomerSearchComponent implements OnInit {
 
-  name: '';
+  name:  string = '';
 
   customers: Customer[] = [];
 
@@ -27,8 +27,8 @@ export class CustomerSearchComponent implements OnInit {
     this.customerService
       .find(this.name)
       .subscribe(
-        (customer) => {
-          this.customers = customer;
+        (customers) => {
+          this.customers = customers;
         },
         (errResp) => {
           console.error('Error loading customers', errResp);
