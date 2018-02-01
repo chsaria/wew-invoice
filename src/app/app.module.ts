@@ -14,7 +14,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { LoginComponent } from './Login/Login.component';
 import { FormsModule } from '@angular/forms';
-import { InvoiceManagementModule } from './invoice-management/invoice-management.module';
+import { PositionManagementModule } from './position-management/position-management.module';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,11 @@ import { InvoiceManagementModule } from './invoice-management/invoice-management
     TenantManagementModule,
     UserManagementModule,
     CustomerManagementModule,
+<<<<<<< HEAD
     InvoiceManagementModule,
+=======
+    PositionManagementModule,
+>>>>>>> f02b03805bcfa076d8c88e5152ba6e0d65d7efba
     RouterModule.forRoot(APP_ROUTES),
     FormsModule
   ],

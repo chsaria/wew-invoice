@@ -1,5 +1,5 @@
 <header>
-  <h1>Customers</h1>
+  <h1>Position</h1>
 </header>
 <main>
   <div>
@@ -13,13 +13,13 @@
         <button (click)="search()" class="btn btn-default">Search</button>
       </div>
       <div class="form-row">
-        <button (click)="new()" class="btn btn-default">New</button>
-      </div>
+          <button (click)="new()" class="btn btn-default">New</button>
+        </div>
     </form>
   </div>
-  <div *ngFor="let c of costumers">
-    <app-customer-card [item]="c">
+  <div *ngFor="let p of positions">
+    <app-position-card [item]="p">
 
-    </app-customer-card>
+    </app-position-card>
   </div>
 </main>
