@@ -18,7 +18,7 @@
     </form>
   </div>
   <div *ngFor="let p of positions">
-    <app-position-card [item]="p">
+    <app-position-card [item]="p" (delete)="delete($event)">
 
     </app-position-card>
   </div>

@@ -17,8 +17,8 @@
       </div>
     </form>
   </div>
-  <div *ngFor="let c of costumers">
-    <app-customer-card [item]="c">
+  <div *ngFor="let c of customers">
+    <app-customer-card [item]="c" (delete)="delete($event)">
 
     </app-customer-card>
   </div>

@@ -1,4 +1,5 @@
 
+import { Position } from './position';
 /* Client-model for an invoice */
 
 export interface LineItem {
@@ -8,6 +9,7 @@ export interface LineItem {
     TaxPercentage: number;
     Count: number;
     Invoice_id: string;
+    Position: Position;
     Position_id: string;
     CreatedAtUtc: Date;
     ModifiedAtUtc: Date;

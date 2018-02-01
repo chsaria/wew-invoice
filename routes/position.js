@@ -5,7 +5,14 @@ const Position = require('../models/Position.js');
 
 /* GET all positions */
 router.get('/', function(req, res, next){
-    Position.find(function(err, positions){
+
+    let searchObject = {};
+    
+    if(req.query.name !== undefined && req.query.name !== null && req.query.name !== '') {
+        searchObject.Name = new RegExp(req.query.name, 'i');
+    }
+
+    Position.find(searchObject, function(err, positions){
         if(err) return next(err);
         res.json(positions);
     });

@@ -42,15 +42,15 @@ app.use('/customer', customer);
 
 app.use('/invoices', express.static(path.join(__dirname, 'dist')));
 app.use('/invoices/*', express.static(path.join(__dirname, 'dist')));
-app.use('/invoice', tenant);
+app.use('/invoice', invoice);
 
 app.use('/lineItems', express.static(path.join(__dirname, 'dist')));
 app.use('/lineItems/*', express.static(path.join(__dirname, 'dist')));
-app.use('/lineItem', tenant);
+app.use('/lineItem', lineItem);
 
 app.use('/positions', express.static(path.join(__dirname, 'dist')));
 app.use('/positions/*', express.static(path.join(__dirname, 'dist')));
-app.use('/position', tenant);
+app.use('/position', position);
 
 
 app.use('/login', express.static(path.join(__dirname, 'dist')));

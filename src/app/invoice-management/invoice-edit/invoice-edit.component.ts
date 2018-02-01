@@ -5,6 +5,7 @@ import { Invoice } from '../../entities/invoice';
 import { Position } from '../../entities/position';
 import { InvoiceService } from '../invoice.service';
 import { CustomerService } from '../../customer-management/customer-service/customer.service';
+import { PositionService } from '../../position-management/position.service';
 import { Customer } from '../../entities/customer';
 import { DatePipe } from '@angular/common';
 import { LineItem } from '../../entities/lineitem';
@@ -26,6 +27,7 @@ export class InvoiceEditComponent implements OnInit {
 
   constructor(
     private invoiceService: InvoiceService,
+    private positionService: PositionService,
     private customerService: CustomerService,
     private router: Router,
     private route: ActivatedRoute) { }
@@ -48,6 +50,17 @@ export class InvoiceEditComponent implements OnInit {
           },
           (errResp) => {
             console.error('Error loading customers', errResp);
+          }
+        );
+
+        this.positionService
+        .find('')
+        .subscribe(
+          (positions) => {
+            this.positions = positions;
+          },
+          (errResp) => {
+            console.error('Error loading positions', errResp);
           }
         );
 
@@ -88,7 +101,7 @@ export class InvoiceEditComponent implements OnInit {
 
     let tax = 1;
 
-    for (let i = 0; i < this.positions.length; i++){
+    for (let i = 0; i < this.positions.length; i++) {
       if (this.positions[i]._id === lineItem.Position_id) {
         tax = this.positions[i].TaxPercentage + 1;
         break;
@@ -105,17 +118,20 @@ export class InvoiceEditComponent implements OnInit {
           return;
         }
       }
+      console.log(this.currentAddPosition);
       this.invoice.LineItems.push({
         _id: '',
         Comment: '',
         NetPrice: this.currentAddPosition.NetDefaultPrice,
         TaxPercentage: this.currentAddPosition.TaxPercentage,
         Count: this.currentAddPosition.DefaultCount,
+        Position: this.currentAddPosition,
         Invoice_id: this.invoice._id,
         Position_id: this.currentAddPosition._id,
         CreatedAtUtc: null,
         ModifiedAtUtc: null
       });
+      console.log(this.invoice);
     }
   }
 

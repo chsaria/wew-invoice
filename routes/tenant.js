@@ -6,8 +6,15 @@ const Tenant = require('../models/Tenant.js');
 
 /* GET all tenants */
 router.get('/', function(req, res, next){
-    Tenant.find(function(err, tenants){
-        if(err) return next(err);
+    
+    let searchObject = {};
+       
+    if(req.query.name !== undefined && req.query.name !== null && req.query.name !== '') {
+        searchObject.Name = new RegExp(req.query.name, 'i');
+    }
+
+    Tenant.find(searchObject, function(err, tenants){
+        if(err) return next(err);   
         res.json(tenants);
     });
 });

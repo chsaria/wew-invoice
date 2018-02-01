@@ -1,5 +1,5 @@
 import { Customer } from './../../entities/customer';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-customer-card',
@@ -12,7 +12,13 @@ export class CustomerCardComponent implements OnInit {
 
   @Input() item: Customer;
 
+  @Output() delete = new EventEmitter<string>();
+
   ngOnInit() {
+  }
+
+  deleteMe() {
+    this.delete.emit(this.item._id);
   }
 
 }

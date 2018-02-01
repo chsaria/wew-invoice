@@ -18,7 +18,7 @@
     </form>
   </div>
   <div *ngFor="let t of tenants">
-    <app-tenant-card [item]="t">
+    <app-tenant-card [item]="t" (delete)="delete($event)">
 
     </app-tenant-card>
   </div>

@@ -3,34 +3,37 @@
     <h2>Edit position {{position.Name}}</h2>
   </header>
   <main>
-    <form>
+    <form #f="ngForm">
       <div class="form-group">
         <label>Short</label>
-        <input [(ngModel)]="position.Short" name="short" class="form-control">
+        <input [(ngModel)]="position.Short" name="short" class="form-control" required minlength="2" maxlength="4">
+        <div class="alert" *ngIf="f?.controls['short']?.hasError('required')">Short is required.</div>
+        <div class="alert" *ngIf="f?.controls['short']?.hasError('minlength')">Short must be at least 2 chars.</div>
+        <div class="alert" *ngIf="f?.controls['short']?.hasError('maxlength')">Short must be max 4 chars.</div>
       </div>
       <div class="form-group">
         <label>Name</label>
-        <input [(ngModel)]="position.name" name="name" class="form-control">
+        <input [(ngModel)]="position.Name" name="name" class="form-control" required>
+        <div class="alert" *ngIf="f?.controls['short']?.hasError('required')">Name is required.</div>
       </div>
       <div class="form-group">
-        <label>NetDefaultPrice</label>
-        <input [(ngModel)]="position.NetDefaultPrice" name="address2" class="form-control">
+        <label>Net default price</label>
+        <input [(ngModel)]="position.NetDefaultPrice" name="netdefaultprice" class="form-control" required>
+        <div class="alert" *ngIf="f?.controls['netdefaultprice']?.hasError('required')">A default price is required.</div>
       </div>
       <div class="form-group">
         <label>TaxPercentage</label>
-        <input [(ngModel)]="position.TaxPercentage" name="address3" class="form-control">
+        <input [(ngModel)]="position.TaxPercentage" name="taxpercentage" class="form-control" required>
+        <div class="alert" *ngIf="f?.controls['taxpercentage']?.hasError('required')">A tax percentage is required.</div>
+      </div>
+      <div class="form-group">
+        <label>Default count</label>
+        <input [(ngModel)]="position.DefaultCount" name="defaultcount" class="form-control" required>
+        <div class="alert" *ngIf="f?.controls['short']?.hasError('required')">A default count is required.</div>
       </div>
       <div class="form-group">
         <label>Unit</label>
-        <input [(ngModel)]="position.Unit" name="zipcode" class="form-control">
-      </div>
-      <div class="form-group">
-        <label>CreatedAtUtc</label>
-        <input [(ngModel)]="position.CreatedAtUtc" name="city" class="form-control">
-      </div>
-      <div class="form-group">
-        <label>ModifiedAtUtc</label>
-        <input [(ngModel)]="position.ModifiedAtUtc" name="phonenumber" class="form-control">
+        <input [(ngModel)]="position.Unit" name="unit" class="form-control">
       </div>
       <button class="btn btn-default" (click)="save()">Save</button>
     </form>

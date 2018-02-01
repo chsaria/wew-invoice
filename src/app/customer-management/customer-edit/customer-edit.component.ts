@@ -11,7 +11,19 @@ import { Customer } from '../../entities/customer';
 export class CustomerEditComponent implements OnInit {
 
   id: string;
-  customer: Customer;
+  customer: Customer = {
+    _id: '',
+    Name: '',
+    Address1: '',
+    Address2: '',
+    Address3: '',
+    City: '',
+    Zipcode: '',
+    Phonenumber: '',
+    CreatedAtUtc: null,
+    ModifiedAtUtc: null,
+    Tenant: null
+  };
   errors: string;
 
   constructor(private customerService: CustomerService, private router: Router, private route: ActivatedRoute) { }
@@ -19,35 +31,14 @@ export class CustomerEditComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(
         params => {
-          console.log('1');
           this.id = params['id'];
-
-          console.log('2');
-
           if (this.id === '') {
-            console.log('3');
             return;
           } else if (this.id === 'new') {
-            console.log('4');
-            this.customer = {
-              _id: '',
-              Name: '',
-              Address1: '',
-              Address2: '',
-              Address3: '',
-              City: '',
-              Zipcode: '',
-              Phonenumber: '',
-              Tenant: null,
-              CreatedAtUtc: null,
-              ModifiedAtUtc: null,
-            };
-            console.log('5');
           } else {
-            console.log('6');
             this.customerService.findById(this.id).subscribe(
-              customer => { console.log('7'); this.customer = customer; this.errors = ''; },
-              error => { console.log('8'); this.errors = 'Error loading customer'; }
+              customer => { this.customer = customer; this.errors = ''; },
+              error => { this.errors = 'Error loading customer'; }
             );
           }
         }
@@ -67,6 +58,7 @@ export class CustomerEditComponent implements OnInit {
       customer => {
         this.customer = customer;
         this.errors = 'Creating was successful!';
+        this.router.navigate(['/customers']);
       },
       err => {
         this.errors = 'Error saving customer';
@@ -79,6 +71,7 @@ export class CustomerEditComponent implements OnInit {
       customer => {
         this.customer = customer;
         this.errors = 'Updating was successful!';
+        this.router.navigate(['/customers']);
       },
       err => {
         this.errors = 'Error saving customer';

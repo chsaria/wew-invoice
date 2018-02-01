@@ -46,8 +46,8 @@
         </thead>
         <tbody>
           <tr *ngFor="let lineitem of invoice.LineItems">
-            <td>*Short</td>
-            <td>*Name</td>
+            <td>{{lineitem.Position.Short}}</td>
+            <td>{{lineitem.Position.Name}}</td>
             <td><input [(ngModel)]="lineitem.Comment" class="form-control"></td>
             <td><input [(ngModel)]="lineitem.Count" class="form-control"></td>
             <td><input [(ngModel)]="lineitem.NetPrice" class="form-control"></td>

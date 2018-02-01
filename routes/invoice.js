@@ -6,6 +6,18 @@ const Customer = require('../models/Customer.js');
 
 /* GET all invoices */
 router.get('/', function(req, res, next){
+
+    
+    let searchObject = {};
+       
+    if(req.query.search !== undefined && req.query.search !== null && req.query.search !== '') {
+        searchObject.$or = 
+        [
+            {'InvoiceNumber': new RegExp(req.query.search, 'i')},
+            {'Customer.Name': new RegExp(req.query.search, 'i')}
+        ];
+    }
+
     Invoice.find(function(err, invoices){
         if(err) return next(err);
         for(var i = 0; i < invoices.length; i++){

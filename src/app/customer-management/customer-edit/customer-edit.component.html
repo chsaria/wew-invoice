@@ -3,30 +3,32 @@
     <h2>Edit customer {{customer.Name}}</h2>
   </header>
   <main>
-    <form>
+    <form #f="ngForm">
       <div class="form-group">
         <label>Name</label>
-        <input [(ngModel)]="customer.Name" name="name" class="form-control">
+        <input [(ngModel)]="customer.Name" name="name" class="form-control" required>
+        <div class="alert" *ngIf="f?.controls['name']?.hasError('required')">Name is required.</div>
       </div>
       <div class="form-group">
         <label>Address</label>
-        <input [(ngModel)]="customer.Address1" name="address1" class="form-control">
+        <input [(ngModel)]="customer.Address1" name="address1" class="form-control" required>
+        <div class="alert" *ngIf="f?.controls['address1']?.hasError('required')">Address is required.</div>
       </div>
       <div class="form-group">
-        <label></label>
         <input [(ngModel)]="customer.Address2" name="address2" class="form-control">
       </div>
       <div class="form-group">
-        <label></label>
         <input [(ngModel)]="customer.Address3" name="address3" class="form-control">
       </div>
       <div class="form-group">
         <label>Zip code</label>
-        <input [(ngModel)]="customer.Zipcode" name="zipcode" class="form-control">
+        <input [(ngModel)]="customer.Zipcode" name="zipcode" class="form-control" required>
+        <div class="alert" *ngIf="f?.controls['zipcode']?.hasError('required')">Zipcode is required.</div>
       </div>
       <div class="form-group">
         <label>City</label>
-        <input [(ngModel)]="customer.City" name="city" class="form-control">
+        <input [(ngModel)]="customer.City" name="city" class="form-control" required>
+        <div class="alert" *ngIf="f?.controls['city']?.hasError('required')">City is required.</div>
       </div>
       <div class="form-group">
         <label>Phone number</label>

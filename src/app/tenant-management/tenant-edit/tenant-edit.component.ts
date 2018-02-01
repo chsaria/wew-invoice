@@ -12,7 +12,24 @@ import { TenantService } from '../tenant.service';
 export class TenantEditComponent implements OnInit {
 
   id: string;
-  tenant: Tenant;
+  tenant: Tenant = {
+    _id: '',
+    Name: '',
+    Address1: '',
+    Address2: '',
+    Address3: '',
+    Zipcode: '',
+    City: '',
+    Phonenumber: '',
+    TaxIdentificationNumber: '',
+    InvoiceNumberScheme: '',
+    LogoUrl: '',
+    IBAN: '',
+    BIC: '',
+    CreatedAtUtc: null,
+    ModifiedAtUtc: null
+  };
+
   errors: string;
 
   constructor(private tenantService: TenantService, private router: Router, private route: ActivatedRoute) { }
@@ -20,39 +37,15 @@ export class TenantEditComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(
       params => {
-        console.log('1');
         this.id = params['id'];
 
-        console.log('2');
-
         if (this.id === '') {
-          console.log('3');
           return;
         } else if (this.id === 'new') {
-          console.log('4');
-          this.tenant = {
-            _id: '',
-            Name: '',
-            Address1: '',
-            Address2: '',
-            Address3: '',
-            Zipcode: '',
-            City: '',
-            Phonenumber: '',
-            TaxIdentificationNumber: '',
-            InvoiceNumberScheme: '',
-            LogoUrl: '',
-            IBAN: '',
-            BIC: '',
-            CreatedAtUtc: null,
-            ModifiedAtUtc: null
-          };
-          console.log('5');
         } else {
-          console.log('6');
           this.tenantService.findById(this.id).subscribe(
-            tenant => { console.log('7'); this.tenant = tenant; this.errors = ''; },
-            error => { console.log('8'); this.errors = 'Error loading tenant'; }
+            tenant => { this.tenant = tenant; this.errors = ''; },
+            error => { this.errors = 'Error loading tenant'; }
           );
         }
       }
@@ -72,6 +65,7 @@ export class TenantEditComponent implements OnInit {
       tenant => {
         this.tenant = tenant;
         this.errors = 'Creating was successful!';
+        this.router.navigate(['/tenants']);
       },
       err => {
         this.errors = 'Error saving tenant';
@@ -84,6 +78,7 @@ export class TenantEditComponent implements OnInit {
       tenant => {
         this.tenant = tenant;
         this.errors = 'Updating was successful!';
+        this.router.navigate(['/tenants']);
       },
       err => {
         this.errors = 'Error saving tenant';

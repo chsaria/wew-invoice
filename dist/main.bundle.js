@@ -181,13 +181,15 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__sidebar_sidebar_component__ = __webpack_require__("../../../../../src/app/sidebar/sidebar.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__Login_Login_component__ = __webpack_require__("../../../../../src/app/Login/Login.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__invoice_management_invoice_management_module__ = __webpack_require__("../../../../../src/app/invoice-management/invoice-management.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__position_management_position_management_module__ = __webpack_require__("../../../../../src/app/position-management/position-management.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__invoice_management_invoice_management_module__ = __webpack_require__("../../../../../src/app/invoice-management/invoice-management.module.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -222,7 +224,8 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_7__tenant_management_tenant_management_module__["a" /* TenantManagementModule */],
                 __WEBPACK_IMPORTED_MODULE_2__user_management_user_management_module__["a" /* UserManagementModule */],
                 __WEBPACK_IMPORTED_MODULE_0__customer_management_customer_management_module__["a" /* CustomerManagementModule */],
-                __WEBPACK_IMPORTED_MODULE_15__invoice_management_invoice_management_module__["a" /* InvoiceManagementModule */],
+                __WEBPACK_IMPORTED_MODULE_16__invoice_management_invoice_management_module__["a" /* InvoiceManagementModule */],
+                __WEBPACK_IMPORTED_MODULE_15__position_management_position_management_module__["a" /* PositionManagementModule */],
                 __WEBPACK_IMPORTED_MODULE_9__angular_router__["c" /* RouterModule */].forRoot(__WEBPACK_IMPORTED_MODULE_10__app_routes__["a" /* APP_ROUTES */]),
                 __WEBPACK_IMPORTED_MODULE_14__angular_forms__["a" /* FormsModule */]
             ],
@@ -249,7 +252,9 @@ var AppModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_home_component__ = __webpack_require__("../../../../../src/app/home/home.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Login_Login_component__ = __webpack_require__("../../../../../src/app/Login/Login.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__user_management_user_search_user_search_component__ = __webpack_require__("../../../../../src/app/user-management/user-search/user-search.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__invoice_management_invoice_search_invoice_search_component__ = __webpack_require__("../../../../../src/app/invoice-management/invoice-search/invoice-search.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__position_management_position_search_position_search_component__ = __webpack_require__("../../../../../src/app/position-management/position-search/position-search.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__invoice_management_invoice_search_invoice_search_component__ = __webpack_require__("../../../../../src/app/invoice-management/invoice-search/invoice-search.component.ts");
+
 
 
 
@@ -268,7 +273,7 @@ var APP_ROUTES = [
     },
     {
         path: 'invoices',
-        component: __WEBPACK_IMPORTED_MODULE_5__invoice_management_invoice_search_invoice_search_component__["a" /* InvoiceSearchComponent */]
+        component: __WEBPACK_IMPORTED_MODULE_6__invoice_management_invoice_search_invoice_search_component__["a" /* InvoiceSearchComponent */]
     },
     {
         path: 'tenants',
@@ -285,6 +290,10 @@ var APP_ROUTES = [
     {
         path: 'customers',
         component: __WEBPACK_IMPORTED_MODULE_0__customer_management_customer_search_customer_search_component__["a" /* CustomerSearchComponent */]
+    },
+    {
+        path: 'positions',
+        component: __WEBPACK_IMPORTED_MODULE_5__position_management_position_search_position_search_component__["a" /* PositionSearchComponent */]
     },
     {
         path: '**',
@@ -316,7 +325,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/customer-management/customer-card/customer-card.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div>\r\n  <div>C: {{item.Name}}</div>\r\n</div>\r\n<app-card>\r\n  <div card-header>Customer: {{item.Name}}</div>\r\n  <div card-content>\r\n    <dl>\r\n      <dt>Name</dt>\r\n      <dd>{{item.Name}}</dd>\r\n      <dt>Zipcode</dt>\r\n      <dd>{{item.Zipcode}}</dd>\r\n      <dt>City</dt>\r\n      <dd>{{item.City}}</dd>\r\n    </dl>\r\n  </div>\r\n  <div card-footer>\r\n    <button [routerLink]=\"['/customers/' + item._id]\">Edit</button>\r\n    <button>Delete</button>\r\n  </div>\r\n</app-card>\r\n"
+module.exports = "<app-card>\r\n  <div card-header>Customer: {{item.Name}}</div>\r\n  <div card-content>\r\n    <dl>\r\n      <dt>Name</dt>\r\n      <dd>{{item.Name}}</dd>\r\n      <dt>Zipcode</dt>\r\n      <dd>{{item.Zipcode}}</dd>\r\n      <dt>City</dt>\r\n      <dd>{{item.City}}</dd>\r\n    </dl>\r\n  </div>\r\n  <div card-footer>\r\n    <button [routerLink]=\"['/customers/' + item._id]\">Edit</button>\r\n    <button (click)=\"deleteMe()\">Delete</button>\r\n  </div>\r\n</app-card>\r\n"
 
 /***/ }),
 
@@ -338,13 +347,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var CustomerCardComponent = (function () {
     function CustomerCardComponent() {
+        this.delete = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* EventEmitter */]();
     }
     CustomerCardComponent.prototype.ngOnInit = function () {
+    };
+    CustomerCardComponent.prototype.deleteMe = function () {
+        this.delete.emit(this.item._id);
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
         __metadata("design:type", Object)
     ], CustomerCardComponent.prototype, "item", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["P" /* Output */])(),
+        __metadata("design:type", Object)
+    ], CustomerCardComponent.prototype, "delete", void 0);
     CustomerCardComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-customer-card',
@@ -381,7 +398,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/customer-management/customer-edit/customer-edit.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "  <header>\r\n    <h1>Customers</h1>\r\n    <h2>Edit customer {{customer.Name}}</h2>\r\n  </header>\r\n  <main>\r\n    <form>\r\n      <div class=\"form-group\">\r\n        <label>Name</label>\r\n        <input [(ngModel)]=\"customer.Name\" name=\"name\" class=\"form-control\">\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label>Address</label>\r\n        <input [(ngModel)]=\"customer.Address1\" name=\"address1\" class=\"form-control\">\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label></label>\r\n        <input [(ngModel)]=\"customer.Address2\" name=\"address2\" class=\"form-control\">\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label></label>\r\n        <input [(ngModel)]=\"customer.Address3\" name=\"address3\" class=\"form-control\">\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label>Zip code</label>\r\n        <input [(ngModel)]=\"customer.Zipcode\" name=\"zipcode\" class=\"form-control\">\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label>City</label>\r\n        <input [(ngModel)]=\"customer.City\" name=\"city\" class=\"form-control\">\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label>Phone number</label>\r\n        <input [(ngModel)]=\"customer.Phonenumber\" name=\"phonenumber\" class=\"form-control\">\r\n      </div>\r\n      <button class=\"btn btn-default\" (click)=\"save()\">Save</button>\r\n    </form>\r\n  </main>\r\n"
+module.exports = "  <header>\r\n    <h1>Customers</h1>\r\n    <h2>Edit customer {{customer.Name}}</h2>\r\n  </header>\r\n  <main>\r\n    <form #f=\"ngForm\">\r\n      <div class=\"form-group\">\r\n        <label>Name</label>\r\n        <input [(ngModel)]=\"customer.Name\" name=\"name\" class=\"form-control\" required>\r\n        <div class=\"alert\" *ngIf=\"f?.controls['name']?.hasError('required')\">Name is required.</div>\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label>Address</label>\r\n        <input [(ngModel)]=\"customer.Address1\" name=\"address1\" class=\"form-control\" required>\r\n        <div class=\"alert\" *ngIf=\"f?.controls['address1']?.hasError('required')\">Address is required.</div>\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <input [(ngModel)]=\"customer.Address2\" name=\"address2\" class=\"form-control\">\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <input [(ngModel)]=\"customer.Address3\" name=\"address3\" class=\"form-control\">\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label>Zip code</label>\r\n        <input [(ngModel)]=\"customer.Zipcode\" name=\"zipcode\" class=\"form-control\" required>\r\n        <div class=\"alert\" *ngIf=\"f?.controls['zipcode']?.hasError('required')\">Zipcode is required.</div>\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label>City</label>\r\n        <input [(ngModel)]=\"customer.City\" name=\"city\" class=\"form-control\" required>\r\n        <div class=\"alert\" *ngIf=\"f?.controls['city']?.hasError('required')\">City is required.</div>\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label>Phone number</label>\r\n        <input [(ngModel)]=\"customer.Phonenumber\" name=\"phonenumber\" class=\"form-control\">\r\n      </div>\r\n      <button class=\"btn btn-default\" (click)=\"save()\">Save</button>\r\n    </form>\r\n  </main>\r\n"
 
 /***/ }),
 
@@ -410,36 +427,31 @@ var CustomerEditComponent = (function () {
         this.customerService = customerService;
         this.router = router;
         this.route = route;
+        this.customer = {
+            _id: '',
+            Name: '',
+            Address1: '',
+            Address2: '',
+            Address3: '',
+            City: '',
+            Zipcode: '',
+            Phonenumber: '',
+            CreatedAtUtc: null,
+            ModifiedAtUtc: null,
+            Tenant: null
+        };
     }
     CustomerEditComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.route.params.subscribe(function (params) {
-            console.log('1');
             _this.id = params['id'];
-            console.log('2');
             if (_this.id === '') {
-                console.log('3');
                 return;
             }
             else if (_this.id === 'new') {
-                console.log('4');
-                _this.customer = {
-                    _id: '',
-                    Name: '',
-                    Address1: '',
-                    Address2: '',
-                    Address3: '',
-                    City: '',
-                    Zipcode: '',
-                    Phonenumber: '',
-                    CreatedAtUtc: null,
-                    ModifiedAtUtc: null,
-                };
-                console.log('5');
             }
             else {
-                console.log('6');
-                _this.customerService.findById(_this.id).subscribe(function (customer) { console.log('7'); _this.customer = customer; _this.errors = ''; }, function (error) { console.log('8'); _this.errors = 'Error loading customer'; });
+                _this.customerService.findById(_this.id).subscribe(function (customer) { _this.customer = customer; _this.errors = ''; }, function (error) { _this.errors = 'Error loading customer'; });
             }
         });
     };
@@ -456,6 +468,7 @@ var CustomerEditComponent = (function () {
         this.customerService.create(this.customer).subscribe(function (customer) {
             _this.customer = customer;
             _this.errors = 'Creating was successful!';
+            _this.router.navigate(['/customers']);
         }, function (err) {
             _this.errors = 'Error saving customer';
         });
@@ -465,6 +478,7 @@ var CustomerEditComponent = (function () {
         this.customerService.update(this.customer).subscribe(function (customer) {
             _this.customer = customer;
             _this.errors = 'Updating was successful!';
+            _this.router.navigate(['/customers']);
         }, function (err) {
             _this.errors = 'Error saving customer';
         });
@@ -654,7 +668,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/customer-management/customer-search/customer-search.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<header>\r\n  <h1>Customers</h1>\r\n</header>\r\n<main>\r\n  <div>\r\n    <h2>Search</h2>\r\n    <form>\r\n      <div class=\"form-row\">\r\n        <label>Name</label>\r\n        <input [(ngModel)]=\"name\" name=\"name\" class=\"form-control\" class=\"form-control\">\r\n      </div>\r\n      <div class=\"form-row\">\r\n        <button (click)=\"search()\" class=\"btn btn-default\">Search</button>\r\n      </div>\r\n      <div class=\"form-row\">\r\n          <button (click)=\"new()\" class=\"btn btn-default\">New</button>\r\n        </div>\r\n    </form>\r\n  </div>\r\n  <div *ngFor=\"let c of costumers\">\r\n    <app-customer-card [item]=\"c\">\r\n\r\n    </app-customer-card>\r\n  </div>\r\n</main>\r\n"
+module.exports = "<header>\r\n  <h1>Customers</h1>\r\n</header>\r\n<main>\r\n  <div>\r\n    <h2>Search</h2>\r\n    <form>\r\n      <div class=\"form-row\">\r\n        <label>Name</label>\r\n        <input [(ngModel)]=\"name\" name=\"name\" class=\"form-control\">\r\n      </div>\r\n      <div class=\"form-row\">\r\n        <button (click)=\"search()\" class=\"btn btn-default\">Search</button>\r\n      </div>\r\n      <div class=\"form-row\">\r\n        <button (click)=\"new()\" class=\"btn btn-default\">New</button>\r\n      </div>\r\n    </form>\r\n  </div>\r\n  <div *ngFor=\"let c of customers\">\r\n    <app-customer-card [item]=\"c\" (delete)=\"delete($event)\">\r\n\r\n    </app-customer-card>\r\n  </div>\r\n</main>\r\n"
 
 /***/ }),
 
@@ -682,6 +696,7 @@ var CustomerSearchComponent = (function () {
     function CustomerSearchComponent(customerService, router) {
         this.customerService = customerService;
         this.router = router;
+        this.name = '';
         this.customers = [];
     }
     CustomerSearchComponent.prototype.ngOnInit = function () {
@@ -691,8 +706,8 @@ var CustomerSearchComponent = (function () {
         var _this = this;
         this.customerService
             .find(this.name)
-            .subscribe(function (customer) {
-            _this.customers = customer;
+            .subscribe(function (customers) {
+            _this.customers = customers;
         }, function (errResp) {
             console.error('Error loading customers', errResp);
         });
@@ -702,6 +717,24 @@ var CustomerSearchComponent = (function () {
     };
     CustomerSearchComponent.prototype.new = function () {
         this.router.navigate(['/customers/new']);
+    };
+    CustomerSearchComponent.prototype.deleteCustomer = function (customer_id) {
+        var _this = this;
+        this.customerService
+            .delete(customer_id)
+            .subscribe(function (success) {
+            for (var i = 0; i < _this.customers.length; i++) {
+                if (_this.customers[i]._id === customer_id) {
+                    _this.customers.splice(i, 1);
+                    break;
+                }
+            }
+        }, function (errResp) {
+            console.error('Error deleting customer', errResp);
+        });
+    };
+    CustomerSearchComponent.prototype.delete = function (event) {
+        this.deleteCustomer(event);
     };
     CustomerSearchComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["n" /* Component */])({
@@ -976,7 +1009,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/invoice-management/invoice-edit/invoice-edit.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<header>\n  <h1>Invoices</h1>\n  <h2>Edit invoice {{invoice.InvoiceNumber}}</h2>\n</header>\n<main>\n  <form>\n    <div class=\"form-group\">\n      <label>Invoice number</label>\n      <input [ngModel]=\"invoice.InvoiceNumber\" name=\"invoicenumber\" class=\"form-control\" disabled=\"disabled\">\n    </div>\n    <div class=\"form-group\">\n      <label>Date</label>\n      <input [ngModel]=\"invoice.CreatedAtUtc | date: 'dd.MM.yyyy'\" name=\"createdatutc\" class=\"form-control\" disabled=\"disabled\">\n    </div>\n    <div class=\"form-group\">\n      <label>Customer</label>\n      <select [(ngModel)]=\"invoice.Customer_id\" class=\"form-control\">\n        <option *ngFor=\"let customer of customers\" [value]=\"customer._id\">{{customer.Name}}</option>\n      </select>\n    </div>\n    <div class=\"form-group\">\n      <label>Customer reference</label>\n      <input [(ngModel)]=\"invoice.CustomerReference\" name=\"customerReference\" class=\"form-control\">\n    </div>\n    <div class=\"form-group\">\n      <label>Comment</label>\n      <input [(ngModel)]=\"invoice.Comment\" name=\"comment\" class=\"form-control\">\n    </div>\n    <div>\n      <p>Items</p>\n      <div class=\"form-group\">\n        <label>Add item</label>\n        <select [(ngModel)]=\"currentAddPosition\" class=\"form-control\" [ngModelOptions]=\"{standalone:true}\">\n          <option *ngFor=\"let position of positions\" [value]=\"position._id\">{{position.Name}}</option>\n        </select>\n        <button class=\"btn btn-default\" (click)=\"addItem()\">+</button>\n      </div>\n      <table>\n        <thead>\n          <th>Short</th>\n          <th>Name</th>\n          <th>Comment</th>\n          <th>Amount</th>\n          <th>NetPrice</th>\n          <th>Sum</th>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let lineitem of invoice.LineItems\">\n            <td>*Short</td>\n            <td>*Name</td>\n            <td><input [(ngModel)]=\"lineitem.Comment\" class=\"form-control\"></td>\n            <td><input [(ngModel)]=\"lineitem.Count\" class=\"form-control\"></td>\n            <td><input [(ngModel)]=\"lineitem.NetPrice\" class=\"form-control\"></td>\n            <td>{{getItemSum(lineitem)}}</td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n    <button class=\"btn btn-default\" (click)=\"save()\">Save</button>\n  </form>\n</main>"
+module.exports = "<header>\n  <h1>Invoices</h1>\n  <h2>Edit invoice {{invoice.InvoiceNumber}}</h2>\n</header>\n<main>\n  <form>\n    <div class=\"form-group\">\n      <label>Invoice number</label>\n      <input [ngModel]=\"invoice.InvoiceNumber\" name=\"invoicenumber\" class=\"form-control\" disabled=\"disabled\">\n    </div>\n    <div class=\"form-group\">\n      <label>Date</label>\n      <input [ngModel]=\"invoice.CreatedAtUtc | date: 'dd.MM.yyyy'\" name=\"createdatutc\" class=\"form-control\" disabled=\"disabled\">\n    </div>\n    <div class=\"form-group\">\n      <label>Customer</label>\n      <select [(ngModel)]=\"invoice.Customer_id\" class=\"form-control\">\n        <option *ngFor=\"let customer of customers\" [value]=\"customer._id\">{{customer.Name}}</option>\n      </select>\n    </div>\n    <div class=\"form-group\">\n      <label>Customer reference</label>\n      <input [(ngModel)]=\"invoice.CustomerReference\" name=\"customerReference\" class=\"form-control\">\n    </div>\n    <div class=\"form-group\">\n      <label>Comment</label>\n      <input [(ngModel)]=\"invoice.Comment\" name=\"comment\" class=\"form-control\">\n    </div>\n    <div>\n      <p>Items</p>\n      <div class=\"form-group\">\n        <label>Add item</label>\n        <select [(ngModel)]=\"currentAddPosition\" class=\"form-control\" [ngModelOptions]=\"{standalone:true}\">\n          <option *ngFor=\"let position of positions\" [value]=\"position._id\">{{position.Name}}</option>\n        </select>\n        <button class=\"btn btn-default\" (click)=\"addItem()\">+</button>\n      </div>\n      <table>\n        <thead>\n          <th>Short</th>\n          <th>Name</th>\n          <th>Comment</th>\n          <th>Amount</th>\n          <th>NetPrice</th>\n          <th>Sum</th>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let lineitem of invoice.LineItems\">\n            <td>{{lineitem.Position.Short}}</td>\n            <td>{{lineitem.Position.Name}}</td>\n            <td><input [(ngModel)]=\"lineitem.Comment\" class=\"form-control\"></td>\n            <td><input [(ngModel)]=\"lineitem.Count\" class=\"form-control\"></td>\n            <td><input [(ngModel)]=\"lineitem.NetPrice\" class=\"form-control\"></td>\n            <td>{{getItemSum(lineitem)}}</td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n    <button class=\"btn btn-default\" (click)=\"save()\">Save</button>\n  </form>\n</main>"
 
 /***/ }),
 
@@ -989,6 +1022,7 @@ module.exports = "<header>\n  <h1>Invoices</h1>\n  <h2>Edit invoice {{invoice.In
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__invoice_service__ = __webpack_require__("../../../../../src/app/invoice-management/invoice.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__customer_management_customer_service_customer_service__ = __webpack_require__("../../../../../src/app/customer-management/customer-service/customer.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__position_management_position_service__ = __webpack_require__("../../../../../src/app/position-management/position.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1002,9 +1036,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var InvoiceEditComponent = (function () {
-    function InvoiceEditComponent(invoiceService, customerService, router, route) {
+    function InvoiceEditComponent(invoiceService, positionService, customerService, router, route) {
         this.invoiceService = invoiceService;
+        this.positionService = positionService;
         this.customerService = customerService;
         this.router = router;
         this.route = route;
@@ -1025,6 +1061,13 @@ var InvoiceEditComponent = (function () {
                 _this.customers = customers;
             }, function (errResp) {
                 console.error('Error loading customers', errResp);
+            });
+            _this.positionService
+                .find('')
+                .subscribe(function (positions) {
+                _this.positions = positions;
+            }, function (errResp) {
+                console.error('Error loading positions', errResp);
             });
             if (_this.id === '') {
                 console.log('3');
@@ -1074,17 +1117,20 @@ var InvoiceEditComponent = (function () {
                     return;
                 }
             }
+            console.log(this.currentAddPosition);
             this.invoice.LineItems.push({
                 _id: '',
                 Comment: '',
                 NetPrice: this.currentAddPosition.NetDefaultPrice,
                 TaxPercentage: this.currentAddPosition.TaxPercentage,
                 Count: this.currentAddPosition.DefaultCount,
+                Position: this.currentAddPosition,
                 Invoice_id: this.invoice._id,
                 Position_id: this.currentAddPosition._id,
                 CreatedAtUtc: null,
                 ModifiedAtUtc: null
             });
+            console.log(this.invoice);
         }
     };
     InvoiceEditComponent.prototype.save = function () {
@@ -1120,6 +1166,7 @@ var InvoiceEditComponent = (function () {
             styles: [__webpack_require__("../../../../../src/app/invoice-management/invoice-edit/invoice-edit.component.css")]
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__invoice_service__["a" /* InvoiceService */],
+            __WEBPACK_IMPORTED_MODULE_4__position_management_position_service__["a" /* PositionService */],
             __WEBPACK_IMPORTED_MODULE_3__customer_management_customer_service_customer_service__["a" /* CustomerService */],
             __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */],
             __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]])
@@ -1307,7 +1354,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/invoice-management/invoice-search/invoice-search.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<header>\n  <h1>Invoices</h1>\n</header>\n<main>\n  <div>\n    <h2>Search</h2>\n    <form>\n      <div class=\"form-row\">\n        <label>Name</label>\n        <input [(ngModel)]=\"name\" name=\"name\" class=\"form-control\" class=\"form-control\">\n        <button (click)=\"search()\" class=\"btn btn-default\">Search</button>\n      </div>\n      <div class=\"form-row\">\n          <button (click)=\"new()\" class=\"btn btn-default\">New</button>\n        </div>\n    </form>\n  </div>\n  <div *ngFor=\"let t of invoices\">\n    <app-invoice-card [item]=\"t\" (delete)=\"delete($event)\">\n\n    </app-invoice-card>\n  </div>\n</main>"
+module.exports = "<header>\n  <h1>Invoices</h1>\n</header>\n<main>\n  <div>\n    <h2>Search</h2>\n    <form>\n      <div class=\"form-row\">\n        <label>Search</label>\n        <input [(ngModel)]=\"searchText\" name=\"searchText\" class=\"form-control\" class=\"form-control\">\n        <button (click)=\"search()\" class=\"btn btn-default\">Search</button>\n      </div>\n      <div class=\"form-row\">\n          <button (click)=\"new()\" class=\"btn btn-default\">New</button>\n        </div>\n    </form>\n  </div>\n  <div *ngFor=\"let t of invoices\">\n    <app-invoice-card [item]=\"t\" (delete)=\"delete($event)\">\n\n    </app-invoice-card>\n  </div>\n</main>"
 
 /***/ }),
 
@@ -1335,7 +1382,7 @@ var InvoiceSearchComponent = (function () {
     function InvoiceSearchComponent(invoiceService, router) {
         this.invoiceService = invoiceService;
         this.router = router;
-        this.name = '';
+        this.searchText = '';
         this.invoices = [];
     }
     InvoiceSearchComponent.prototype.ngOnInit = function () {
@@ -1344,7 +1391,7 @@ var InvoiceSearchComponent = (function () {
     InvoiceSearchComponent.prototype.search = function () {
         var _this = this;
         this.invoiceService
-            .find(this.name)
+            .find(this.searchText)
             .subscribe(function (invoices) {
             _this.invoices = invoices;
         }, function (errResp) {
@@ -1529,6 +1576,535 @@ var NavbarComponent = (function () {
         __metadata("design:paramtypes", [])
     ], NavbarComponent);
     return NavbarComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/position-management/position-card/position-card.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/position-management/position-card/position-card.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<app-card>\r\n  <div card-header>Position: {{item.Name}}</div>\r\n  <div card-content>\r\n    <dl>\r\n      <dt>Short</dt>\r\n      <dd>{{item.Short}}</dd>\r\n      <dt>Name</dt>\r\n      <dd>{{item.Name}}</dd>\r\n      <dt>NetDefaultPrice</dt>\r\n      <dd>{{item.NetDefaultPrice | currency:'EUR' }}</dd>\r\n      <dt>TaxPercentage</dt>\r\n      <dd>{{item.TaxPercentage}}%</dd>\r\n      <dt>Unit</dt>\r\n      <dd>{{item.Unit}}</dd>\r\n    </dl>\r\n  </div>\r\n  <div card-footer>\r\n    <button [routerLink]=\"['/positions/' + item._id]\">Edit</button>\r\n    <button (click)=\"deleteMe()\">Delete</button>\r\n  </div>\r\n</app-card>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/position-management/position-card/position-card.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PositionCardComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var PositionCardComponent = (function () {
+    function PositionCardComponent() {
+        this.delete = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* EventEmitter */]();
+    }
+    PositionCardComponent.prototype.ngOnInit = function () {
+    };
+    PositionCardComponent.prototype.deleteMe = function () {
+        this.delete.emit(this.item._id);
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
+        __metadata("design:type", Object)
+    ], PositionCardComponent.prototype, "item", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["P" /* Output */])(),
+        __metadata("design:type", Object)
+    ], PositionCardComponent.prototype, "delete", void 0);
+    PositionCardComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-position-card',
+            template: __webpack_require__("../../../../../src/app/position-management/position-card/position-card.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/position-management/position-card/position-card.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], PositionCardComponent);
+    return PositionCardComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/position-management/position-edit/position-edit.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/position-management/position-edit/position-edit.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<header>\r\n    <h1>Positions</h1>\r\n    <h2>Edit position {{position.Name}}</h2>\r\n  </header>\r\n  <main>\r\n    <form #f=\"ngForm\">\r\n      <div class=\"form-group\">\r\n        <label>Short</label>\r\n        <input [(ngModel)]=\"position.Short\" name=\"short\" class=\"form-control\" required minlength=\"2\" maxlength=\"4\">\r\n        <div class=\"alert\" *ngIf=\"f?.controls['short']?.hasError('required')\">Short is required.</div>\r\n        <div class=\"alert\" *ngIf=\"f?.controls['short']?.hasError('minlength')\">Short must be at least 2 chars.</div>\r\n        <div class=\"alert\" *ngIf=\"f?.controls['short']?.hasError('maxlength')\">Short must be max 4 chars.</div>\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label>Name</label>\r\n        <input [(ngModel)]=\"position.Name\" name=\"name\" class=\"form-control\" required>\r\n        <div class=\"alert\" *ngIf=\"f?.controls['short']?.hasError('required')\">Name is required.</div>\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label>Net default price</label>\r\n        <input [(ngModel)]=\"position.NetDefaultPrice\" name=\"netdefaultprice\" class=\"form-control\" required>\r\n        <div class=\"alert\" *ngIf=\"f?.controls['netdefaultprice']?.hasError('required')\">A default price is required.</div>\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label>TaxPercentage</label>\r\n        <input [(ngModel)]=\"position.TaxPercentage\" name=\"taxpercentage\" class=\"form-control\" required>\r\n        <div class=\"alert\" *ngIf=\"f?.controls['taxpercentage']?.hasError('required')\">A tax percentage is required.</div>\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label>Default count</label>\r\n        <input [(ngModel)]=\"position.DefaultCount\" name=\"defaultcount\" class=\"form-control\" required>\r\n        <div class=\"alert\" *ngIf=\"f?.controls['short']?.hasError('required')\">A default count is required.</div>\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label>Unit</label>\r\n        <input [(ngModel)]=\"position.Unit\" name=\"unit\" class=\"form-control\">\r\n      </div>\r\n      <button class=\"btn btn-default\" (click)=\"save()\">Save</button>\r\n    </form>\r\n  </main>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/position-management/position-edit/position-edit.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PositionEditComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__position_service__ = __webpack_require__("../../../../../src/app/position-management/position.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var PositionEditComponent = (function () {
+    function PositionEditComponent(positionService, router, route) {
+        this.positionService = positionService;
+        this.router = router;
+        this.route = route;
+        this.position = {
+            _id: '',
+            Short: '',
+            Name: '',
+            NetDefaultPrice: 0,
+            TaxPercentage: 0,
+            DefaultCount: 0,
+            Unit: '',
+            Tenant: null,
+            CreatedAtUtc: null,
+            ModifiedAtUtc: null
+        };
+    }
+    PositionEditComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.route.params.subscribe(function (params) {
+            _this.id = params['id'];
+            if (_this.id === '') {
+                return;
+            }
+            else if (_this.id === 'new') {
+            }
+            else {
+                _this.positionService.findById(_this.id).subscribe(function (position) { _this.position = position; _this.errors = ''; }, function (error) { _this.errors = 'Error loading position'; });
+            }
+        });
+    };
+    PositionEditComponent.prototype.save = function () {
+        if (this.id === 'new') {
+            this.createNew();
+        }
+        else {
+            this.update();
+        }
+    };
+    PositionEditComponent.prototype.createNew = function () {
+        var _this = this;
+        this.positionService.create(this.position).subscribe(function (position) {
+            _this.position = position;
+            _this.errors = 'Creating was successful!';
+            _this.router.navigate(['/positions']);
+        }, function (err) {
+            _this.errors = 'Error saving position';
+        });
+    };
+    PositionEditComponent.prototype.update = function () {
+        var _this = this;
+        this.positionService.update(this.position).subscribe(function (position) {
+            _this.position = position;
+            _this.errors = 'Updating was successful!';
+            _this.router.navigate(['/positions']);
+        }, function (err) {
+            _this.errors = 'Error saving position';
+        });
+    };
+    PositionEditComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-position-edit',
+            template: __webpack_require__("../../../../../src/app/position-management/position-edit/position-edit.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/position-management/position-edit/position-edit.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__position_service__["a" /* PositionService */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]])
+    ], PositionEditComponent);
+    return PositionEditComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/position-management/position-management.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/position-management/position-management.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\r\n  position-management works!\r\n</p>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/position-management/position-management.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PositionManagementComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var PositionManagementComponent = (function () {
+    function PositionManagementComponent() {
+    }
+    PositionManagementComponent.prototype.ngOnInit = function () {
+    };
+    PositionManagementComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-position-management',
+            template: __webpack_require__("../../../../../src/app/position-management/position-management.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/position-management/position-management.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], PositionManagementComponent);
+    return PositionManagementComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/position-management/position-management.module.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PositionManagementModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__shared_shared_module__ = __webpack_require__("../../../../../src/app/shared/shared.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common__ = __webpack_require__("../../../common/esm5/common.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__position_management_component__ = __webpack_require__("../../../../../src/app/position-management/position-management.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__position_card_position_card_component__ = __webpack_require__("../../../../../src/app/position-management/position-card/position-card.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__position_edit_position_edit_component__ = __webpack_require__("../../../../../src/app/position-management/position-edit/position-edit.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__position_search_position_search_component__ = __webpack_require__("../../../../../src/app/position-management/position-search/position-search.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__position_service__ = __webpack_require__("../../../../../src/app/position-management/position.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__position_management_routes__ = __webpack_require__("../../../../../src/app/position-management/position-management.routes.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+
+
+
+
+
+
+var PositionManagementModule = (function () {
+    function PositionManagementModule() {
+    }
+    PositionManagementModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["I" /* NgModule */])({
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_2__angular_common__["b" /* CommonModule */],
+                __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */],
+                __WEBPACK_IMPORTED_MODULE_0__shared_shared_module__["a" /* SharedModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_router__["c" /* RouterModule */].forChild(__WEBPACK_IMPORTED_MODULE_10__position_management_routes__["a" /* POSITION_MANAGEMENT_ROUTES */])
+            ],
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_5__position_management_component__["a" /* PositionManagementComponent */],
+                __WEBPACK_IMPORTED_MODULE_6__position_card_position_card_component__["a" /* PositionCardComponent */],
+                __WEBPACK_IMPORTED_MODULE_7__position_edit_position_edit_component__["a" /* PositionEditComponent */],
+                __WEBPACK_IMPORTED_MODULE_8__position_search_position_search_component__["a" /* PositionSearchComponent */]
+            ],
+            providers: [
+                __WEBPACK_IMPORTED_MODULE_9__position_service__["a" /* PositionService */]
+            ],
+            exports: [
+                __WEBPACK_IMPORTED_MODULE_8__position_search_position_search_component__["a" /* PositionSearchComponent */]
+            ]
+        })
+    ], PositionManagementModule);
+    return PositionManagementModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/position-management/position-management.routes.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return POSITION_MANAGEMENT_ROUTES; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__position_edit_position_edit_component__ = __webpack_require__("../../../../../src/app/position-management/position-edit/position-edit.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__position_search_position_search_component__ = __webpack_require__("../../../../../src/app/position-management/position-search/position-search.component.ts");
+
+
+var POSITION_MANAGEMENT_ROUTES = [
+    {
+        path: 'positions',
+        component: __WEBPACK_IMPORTED_MODULE_1__position_search_position_search_component__["a" /* PositionSearchComponent */]
+    },
+    {
+        path: 'positions/:id',
+        component: __WEBPACK_IMPORTED_MODULE_0__position_edit_position_edit_component__["a" /* PositionEditComponent */]
+    }
+];
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/position-management/position-search/position-search.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/position-management/position-search/position-search.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<header>\r\n  <h1>Position</h1>\r\n</header>\r\n<main>\r\n  <div>\r\n    <h2>Search</h2>\r\n    <form>\r\n      <div class=\"form-row\">\r\n        <label>Name</label>\r\n        <input [(ngModel)]=\"name\" name=\"name\" class=\"form-control\">\r\n      </div>\r\n      <div class=\"form-row\">\r\n        <button (click)=\"search()\" class=\"btn btn-default\">Search</button>\r\n      </div>\r\n      <div class=\"form-row\">\r\n          <button (click)=\"new()\" class=\"btn btn-default\">New</button>\r\n        </div>\r\n    </form>\r\n  </div>\r\n  <div *ngFor=\"let p of positions\">\r\n    <app-position-card [item]=\"p\" (delete)=\"delete($event)\">\r\n\r\n    </app-position-card>\r\n  </div>\r\n</main>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/position-management/position-search/position-search.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PositionSearchComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__position_service__ = __webpack_require__("../../../../../src/app/position-management/position.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var PositionSearchComponent = (function () {
+    function PositionSearchComponent(positionService, router) {
+        this.positionService = positionService;
+        this.router = router;
+        this.name = '';
+        this.positions = [];
+    }
+    PositionSearchComponent.prototype.ngOnInit = function () {
+        this.search();
+    };
+    PositionSearchComponent.prototype.search = function () {
+        var _this = this;
+        this.positionService
+            .find(this.name)
+            .subscribe(function (positions) {
+            _this.positions = positions;
+        }, function (errResp) {
+            console.error('Error loading positions', errResp);
+        });
+    };
+    PositionSearchComponent.prototype.select = function (p) {
+        this.selectedPosition = p;
+    };
+    PositionSearchComponent.prototype.new = function () {
+        this.router.navigate(['/positions/new']);
+    };
+    PositionSearchComponent.prototype.deletePosition = function (position_id) {
+        var _this = this;
+        this.positionService
+            .delete(position_id)
+            .subscribe(function (success) {
+            for (var i = 0; i < _this.positions.length; i++) {
+                if (_this.positions[i]._id === position_id) {
+                    _this.positions.splice(i, 1);
+                    break;
+                }
+            }
+        }, function (errResp) {
+            console.error('Error deleting position', errResp);
+        });
+    };
+    PositionSearchComponent.prototype.delete = function (event) {
+        this.deletePosition(event);
+    };
+    PositionSearchComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-position-search',
+            template: __webpack_require__("../../../../../src/app/position-management/position-search/position-search.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/position-management/position-search/position-search.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__position_service__["a" /* PositionService */], __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]])
+    ], PositionSearchComponent);
+    return PositionSearchComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/position-management/position.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PositionService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("../../../common/esm5/http.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var PositionService = (function () {
+    function PositionService(http) {
+        this.http = http;
+    }
+    /* GET all (filtered) position */
+    PositionService.prototype.find = function (name) {
+        var url = '/position';
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["c" /* HttpHeaders */]()
+            .set('Accept', 'application/json');
+        var params = new __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["d" /* HttpParams */]()
+            .set('name', name);
+        return this
+            .http
+            .get(url, { headers: headers, params: params });
+    };
+    PositionService.prototype.findById = function (id) {
+        var url = '/position/' + id;
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["c" /* HttpHeaders */]()
+            .set('Accept', 'application/json');
+        /*const params = new HttpParams()
+                                .set('id', id);*/
+        return this
+            .http
+            .get(url, { headers: headers });
+    };
+    PositionService.prototype.create = function (positionToSave) {
+        var url = '/position';
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["c" /* HttpHeaders */]()
+            .set('Accept', 'application/json');
+        return this
+            .http
+            .post(url, positionToSave, { headers: headers });
+    };
+    PositionService.prototype.update = function (positionToSave) {
+        var id = positionToSave._id;
+        var url = '/position/' + id;
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["c" /* HttpHeaders */]()
+            .set('Accept', 'application/json');
+        /*const params = new HttpParams()
+                            .set('id', positionToSave.Id);*/
+        return this
+            .http
+            .put(url, positionToSave, { headers: headers });
+    };
+    PositionService.prototype.delete = function (id) {
+        var url = '/position/' + id;
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["c" /* HttpHeaders */]()
+            .set('Accept', 'application/json');
+        /*const params = new HttpParams()
+                            .set('id', id);*/
+        return this
+            .http
+            .delete(url, { headers: headers });
+    };
+    PositionService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]])
+    ], PositionService);
+    return PositionService;
 }());
 
 
@@ -1782,7 +2358,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/tenant-management/tenant-card/tenant-card.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-card>\r\n  <div card-header>Tenant: {{item.Name}}</div>\r\n  <div card-content>\r\n    <dl>\r\n      <dt>Name</dt>\r\n      <dd>{{item.Name}}</dd>\r\n      <dt>Zipcode</dt>\r\n      <dd>{{item.Zipcode}}</dd>\r\n      <dt>City</dt>\r\n      <dd>{{item.City}}</dd>\r\n    </dl>\r\n  </div>\r\n  <div card-footer>\r\n    <button [routerLink]=\"['/tenants/' + item._id]\">Edit</button>\r\n    <button>Delete</button>\r\n  </div>\r\n</app-card>"
+module.exports = "<app-card>\r\n  <div card-header>Tenant: {{item.Name}}</div>\r\n  <div card-content>\r\n    <dl>\r\n      <dt>Name</dt>\r\n      <dd>{{item.Name}}</dd>\r\n      <dt>Zipcode</dt>\r\n      <dd>{{item.Zipcode}}</dd>\r\n      <dt>City</dt>\r\n      <dd>{{item.City}}</dd>\r\n    </dl>\r\n  </div>\r\n  <div card-footer>\r\n    <button [routerLink]=\"['/tenants/' + item._id]\">Edit</button>\r\n    <button (click)=\"deleteMe()\">Delete</button>\r\n  </div>\r\n</app-card>"
 
 /***/ }),
 
@@ -1804,13 +2380,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var TenantCardComponent = (function () {
     function TenantCardComponent() {
+        this.delete = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* EventEmitter */]();
     }
+    TenantCardComponent.prototype.deleteMe = function () {
+        this.delete.emit(this.item._id);
+    };
     TenantCardComponent.prototype.ngOnInit = function () {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
         __metadata("design:type", Object)
     ], TenantCardComponent.prototype, "item", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["P" /* Output */])(),
+        __metadata("design:type", Object)
+    ], TenantCardComponent.prototype, "delete", void 0);
     TenantCardComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-tenant-card',
@@ -1847,7 +2431,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/tenant-management/tenant-edit/tenant-edit.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<header>\r\n  <h1>Tenants</h1>\r\n  <h2>Edit tenant {{tenant.Name}}</h2>\r\n</header>\r\n<main>\r\n  <form>\r\n    <div class=\"form-group\">\r\n      <label>Name</label>\r\n      <input [(ngModel)]=\"tenant.Name\" name=\"name\" class=\"form-control\">\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label>Address</label>\r\n      <input [(ngModel)]=\"tenant.Address1\" name=\"address1\" class=\"form-control\">\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label></label>\r\n      <input [(ngModel)]=\"tenant.Address2\" name=\"address2\" class=\"form-control\">\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label></label>\r\n      <input [(ngModel)]=\"tenant.Address3\" name=\"address3\" class=\"form-control\">\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label>Zip code</label>\r\n      <input [(ngModel)]=\"tenant.Zipcode\" name=\"zipcode\" class=\"form-control\">\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label>City</label>\r\n      <input [(ngModel)]=\"tenant.City\" name=\"city\" class=\"form-control\">\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label>Phone number</label>\r\n      <input [(ngModel)]=\"tenant.Phonenumber\" name=\"phonenumber\" class=\"form-control\">\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label>IBAN</label>\r\n      <input [(ngModel)]=\"tenant.IBAN\" name=\"iban\" class=\"form-control\">\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label>BIC</label>\r\n      <input [(ngModel)]=\"tenant.BIC\" name=\"bic\" class=\"form-control\">\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label>Invoice number scheme</label>\r\n      <input [(ngModel)]=\"tenant.InvoiceNumberScheme\" name=\"invoiceNumberScheme\" class=\"form-control\">\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label></label>\r\n      <input [(ngModel)]=\"tenant.TaxIdentificationNumber\" name=\"taxIdentificationNumber\" class=\"form-control\">\r\n    </div>\r\n    <button class=\"btn btn-default\" (click)=\"save()\">Save</button>\r\n  </form>\r\n</main>"
+module.exports = "<header>\r\n  <h1>Tenants</h1>\r\n  <h2>Edit tenant {{tenant.Name}}</h2>\r\n</header>\r\n<main>\r\n  <form>\r\n    <div class=\"form-group\">\r\n      <label>Name</label>\r\n      <input [(ngModel)]=\"tenant.Name\" name=\"name\" class=\"form-control\">\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label>Address</label>\r\n      <input [(ngModel)]=\"tenant.Address1\" name=\"address1\" class=\"form-control\">\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label></label>\r\n      <input [(ngModel)]=\"tenant.Address2\" name=\"address2\" class=\"form-control\">\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label></label>\r\n      <input [(ngModel)]=\"tenant.Address3\" name=\"address3\" class=\"form-control\">\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label>Zip code</label>\r\n      <input [(ngModel)]=\"tenant.Zipcode\" name=\"zipcode\" class=\"form-control\">\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label>City</label>\r\n      <input [(ngModel)]=\"tenant.City\" name=\"city\" class=\"form-control\">\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label>Phone number</label>\r\n      <input [(ngModel)]=\"tenant.Phonenumber\" name=\"phonenumber\" class=\"form-control\">\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label>IBAN</label>\r\n      <input [(ngModel)]=\"tenant.IBAN\" name=\"iban\" class=\"form-control\">\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label>BIC</label>\r\n      <input [(ngModel)]=\"tenant.BIC\" name=\"bic\" class=\"form-control\">\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label>Invoice number scheme</label>\r\n      <input [(ngModel)]=\"tenant.InvoiceNumberScheme\" name=\"invoiceNumberScheme\" class=\"form-control\">\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label>Tax ID</label>\r\n      <input [(ngModel)]=\"tenant.TaxIdentificationNumber\" name=\"taxIdentificationNumber\" class=\"form-control\">\r\n    </div>\r\n    <button class=\"btn btn-default\" (click)=\"save()\">Save</button>\r\n  </form>\r\n</main>"
 
 /***/ }),
 
@@ -1876,41 +2460,35 @@ var TenantEditComponent = (function () {
         this.tenantService = tenantService;
         this.router = router;
         this.route = route;
+        this.tenant = {
+            _id: '',
+            Name: '',
+            Address1: '',
+            Address2: '',
+            Address3: '',
+            Zipcode: '',
+            City: '',
+            Phonenumber: '',
+            TaxIdentificationNumber: '',
+            InvoiceNumberScheme: '',
+            LogoUrl: '',
+            IBAN: '',
+            BIC: '',
+            CreatedAtUtc: null,
+            ModifiedAtUtc: null
+        };
     }
     TenantEditComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.route.params.subscribe(function (params) {
-            console.log('1');
             _this.id = params['id'];
-            console.log('2');
             if (_this.id === '') {
-                console.log('3');
                 return;
             }
             else if (_this.id === 'new') {
-                console.log('4');
-                _this.tenant = {
-                    _id: '',
-                    Name: '',
-                    Address1: '',
-                    Address2: '',
-                    Address3: '',
-                    Zipcode: '',
-                    City: '',
-                    Phonenumber: '',
-                    TaxIdentificationNumber: '',
-                    InvoiceNumberScheme: '',
-                    LogoUrl: '',
-                    IBAN: '',
-                    BIC: '',
-                    CreatedAtUtc: null,
-                    ModifiedAtUtc: null
-                };
-                console.log('5');
             }
             else {
-                console.log('6');
-                _this.tenantService.findById(_this.id).subscribe(function (tenant) { console.log('7'); _this.tenant = tenant; _this.errors = ''; }, function (error) { console.log('8'); _this.errors = 'Error loading tenant'; });
+                _this.tenantService.findById(_this.id).subscribe(function (tenant) { _this.tenant = tenant; _this.errors = ''; }, function (error) { _this.errors = 'Error loading tenant'; });
             }
         });
     };
@@ -1927,6 +2505,7 @@ var TenantEditComponent = (function () {
         this.tenantService.create(this.tenant).subscribe(function (tenant) {
             _this.tenant = tenant;
             _this.errors = 'Creating was successful!';
+            _this.router.navigate(['/tenants']);
         }, function (err) {
             _this.errors = 'Error saving tenant';
         });
@@ -1936,6 +2515,7 @@ var TenantEditComponent = (function () {
         this.tenantService.update(this.tenant).subscribe(function (tenant) {
             _this.tenant = tenant;
             _this.errors = 'Updating was successful!';
+            _this.router.navigate(['/tenants']);
         }, function (err) {
             _this.errors = 'Error saving tenant';
         });
@@ -2125,7 +2705,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/tenant-management/tenant-search/tenant-search.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<header>\r\n  <h1>Tenants</h1>\r\n</header>\r\n<main>\r\n  <div>\r\n    <h2>Search</h2>\r\n    <form>\r\n      <div class=\"form-row\">\r\n        <label>Name</label>\r\n        <input [(ngModel)]=\"name\" name=\"name\" class=\"form-control\" class=\"form-control\">\r\n      </div>\r\n      <div class=\"form-row\">\r\n        <button (click)=\"search()\" class=\"btn btn-default\">Search</button>\r\n      </div>\r\n      <div class=\"form-row\">\r\n          <button (click)=\"new()\" class=\"btn btn-default\">New</button>\r\n        </div>\r\n    </form>\r\n  </div>\r\n  <div *ngFor=\"let t of tenants\">\r\n    <app-tenant-card [item]=\"t\">\r\n\r\n    </app-tenant-card>\r\n  </div>\r\n</main>"
+module.exports = "<header>\r\n  <h1>Tenants</h1>\r\n</header>\r\n<main>\r\n  <div>\r\n    <h2>Search</h2>\r\n    <form>\r\n      <div class=\"form-row\">\r\n        <label>Name</label>\r\n        <input [(ngModel)]=\"name\" name=\"name\" class=\"form-control\" class=\"form-control\">\r\n      </div>\r\n      <div class=\"form-row\">\r\n        <button (click)=\"search()\" class=\"btn btn-default\">Search</button>\r\n      </div>\r\n      <div class=\"form-row\">\r\n          <button (click)=\"new()\" class=\"btn btn-default\">New</button>\r\n        </div>\r\n    </form>\r\n  </div>\r\n  <div *ngFor=\"let t of tenants\">\r\n    <app-tenant-card [item]=\"t\" (delete)=\"delete($event)\">\r\n\r\n    </app-tenant-card>\r\n  </div>\r\n</main>"
 
 /***/ }),
 
@@ -2174,6 +2754,24 @@ var TenantSearchComponent = (function () {
     };
     TenantSearchComponent.prototype.new = function () {
         this.router.navigate(['/tenants/new']);
+    };
+    TenantSearchComponent.prototype.deleteTenant = function (tenant_id) {
+        var _this = this;
+        this.tenantService
+            .delete(tenant_id)
+            .subscribe(function (success) {
+            for (var i = 0; i < _this.tenants.length; i++) {
+                if (_this.tenants[i]._id === tenant_id) {
+                    _this.tenants.splice(i, 1);
+                    break;
+                }
+            }
+        }, function (errResp) {
+            console.error('Error deleting invoice', errResp);
+        });
+    };
+    TenantSearchComponent.prototype.delete = function (event) {
+        this.deleteTenant(event);
     };
     TenantSearchComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({

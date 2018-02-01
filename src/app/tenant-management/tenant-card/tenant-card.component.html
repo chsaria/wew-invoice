@@ -12,6 +12,6 @@
   </div>
   <div card-footer>
     <button [routerLink]="['/tenants/' + item._id]">Edit</button>
-    <button>Delete</button>
+    <button (click)="deleteMe()">Delete</button>
   </div>
 </app-card>

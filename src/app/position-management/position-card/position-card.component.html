@@ -1,6 +1,3 @@
-<div>
-  <div>P: {{item.Name}}</div>
-</div>
 <app-card>
   <div card-header>Position: {{item.Name}}</div>
   <div card-content>
@@ -10,19 +7,15 @@
       <dt>Name</dt>
       <dd>{{item.Name}}</dd>
       <dt>NetDefaultPrice</dt>
-      <dd>{{item.NetDefaultPrice}}</dd>
+      <dd>{{item.NetDefaultPrice | currency:'EUR' }}</dd>
       <dt>TaxPercentage</dt>
-      <dd>{{item.TaxPercentage}}</dd>
+      <dd>{{item.TaxPercentage}}%</dd>
       <dt>Unit</dt>
       <dd>{{item.Unit}}</dd>
-      <dt>CreatedAtUtc</dt>
-      <dd>{{item.CreatedAtUtc}}</dd>
-      <dt>ModifiedAtUtc</dt>
-      <dd>{{item.ModifiedAtUtc}}</dd>
     </dl>
   </div>
   <div card-footer>
-    <button [routerLink]="['/postitions/' + item._id]">Edit</button>
-    <button>Delete</button>
+    <button [routerLink]="['/positions/' + item._id]">Edit</button>
+    <button (click)="deleteMe()">Delete</button>
   </div>
 </app-card>

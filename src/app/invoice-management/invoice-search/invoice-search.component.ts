@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class InvoiceSearchComponent implements OnInit {
 
-  name: string = '';
+  searchText: string = '';
 
   invoices: Invoice[] = [];
 
@@ -25,7 +25,7 @@ export class InvoiceSearchComponent implements OnInit {
 
   search(): void {
     this.invoiceService
-      .find(this.name)
+      .find(this.searchText)
       .subscribe(
         (invoices) => {
           this.invoices = invoices;

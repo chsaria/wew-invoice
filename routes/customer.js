@@ -5,7 +5,14 @@ const Customer = require('../models/Customer.js');
 
 /* GET all customers */
 router.get('/', function(req, res, next){
-    Customer.find(function(err, customers){
+    
+    let searchObject = {};
+       
+    if(req.query.name !== undefined && req.query.name !== null && req.query.name !== '') {
+        searchObject.Name = new RegExp(req.query.name, 'i');
+    }
+
+    Customer.find(searchObject, function(err, customers){
         if(err) return next(err);
         res.json(customers);
     });

@@ -1,6 +1,3 @@
-<div>
-  <div>C: {{item.Name}}</div>
-</div>
 <app-card>
   <div card-header>Customer: {{item.Name}}</div>
   <div card-content>
@@ -15,6 +12,6 @@
   </div>
   <div card-footer>
     <button [routerLink]="['/customers/' + item._id]">Edit</button>
-    <button>Delete</button>
+    <button (click)="deleteMe()">Delete</button>
   </div>
 </app-card>

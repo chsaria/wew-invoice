@@ -31,11 +31,8 @@ import { InvoiceManagementModule } from './invoice-management/invoice-management
     TenantManagementModule,
     UserManagementModule,
     CustomerManagementModule,
-<<<<<<< HEAD
     InvoiceManagementModule,
-=======
     PositionManagementModule,
->>>>>>> f02b03805bcfa076d8c88e5152ba6e0d65d7efba
     RouterModule.forRoot(APP_ROUTES),
     FormsModule
   ],

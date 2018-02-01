@@ -12,7 +12,18 @@ import { PositionService } from '../position.service';
 })
 export class PositionEditComponent implements OnInit {
   id: string;
-  position: Position;
+  position: Position = {
+    _id: '',
+    Short: '',
+    Name: '',
+    NetDefaultPrice: 0,
+    TaxPercentage: 0,
+    DefaultCount: 0,
+    Unit: '',
+    Tenant: null,
+    CreatedAtUtc: null,
+    ModifiedAtUtc: null
+  };
   errors: string;
 
   constructor(private positionService: PositionService, private router: Router, private route: ActivatedRoute) { }
@@ -20,34 +31,15 @@ export class PositionEditComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(
       params => {
-        console.log('1');
         this.id = params['id'];
 
-        console.log('2');
-
         if (this.id === '') {
-          console.log('3');
           return;
         } else if (this.id === 'new') {
-          console.log('4');
-          this.position = {
-            _id: '',
-            Short: '',
-            Name: '',
-            NetDefaultPrice: 0,
-            TaxPercentage: 0,
-            DefaultCount: 0,
-            Unit: '',
-            Tenant: null,
-            CreatedAtUtc: null,
-            ModifiedAtUtc: null
-          };
-          console.log('5');
         } else {
-          console.log('6');
           this.positionService.findById(this.id).subscribe(
-            position => { console.log('7'); this.position = position; this.errors = ''; },
-            error => { console.log('8'); this.errors = 'Error loading position'; }
+            position => { this.position = position; this.errors = ''; },
+            error => { this.errors = 'Error loading position'; }
           );
         }
       }
@@ -67,6 +59,7 @@ export class PositionEditComponent implements OnInit {
       position => {
         this.position = position;
         this.errors = 'Creating was successful!';
+        this.router.navigate(['/positions']);
       },
       err => {
         this.errors = 'Error saving position';
@@ -79,6 +72,7 @@ export class PositionEditComponent implements OnInit {
       position => {
         this.position = position;
         this.errors = 'Updating was successful!';
+        this.router.navigate(['/positions']);
       },
       err => {
         this.errors = 'Error saving position';

@@ -43,4 +43,26 @@ export class CustomerSearchComponent implements OnInit {
   new(): void {
     this.router.navigate(['/customers/new']);
   }
+
+  deleteCustomer(customer_id: string): void {
+    this.customerService
+    .delete(customer_id)
+    .subscribe(
+      (success) => {
+        for (let i = 0; i < this.customers.length; i++) {
+          if (this.customers[i]._id === customer_id) {
+            this.customers.splice(i, 1);
+            break;
+          }
+        }
+      },
+      (errResp) => {
+        console.error('Error deleting customer', errResp);
+      }
+    );
+  }
+
+  delete(event) {
+    this.deleteCustomer(event);
+  }
 }
