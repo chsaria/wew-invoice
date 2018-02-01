@@ -1,0 +1,51 @@
+import { CustomerSearchComponent } from './customer-management/customer-search/customer-search.component';
+import { TenantSearchComponent } from './tenant-management/tenant-search/tenant-search.component';
+import { Routes, RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './Login/Login.component';
+import { UserSearchComponent } from './user-management/user-search/user-search.component';
+<<<<<<< HEAD
+import { InvoiceSearchComponent } from './invoice-management/invoice-search/invoice-search.component';
+=======
+import { PositionSearchComponent } from './position-management/position-search/position-search.component';
+>>>>>>> f02b03805bcfa076d8c88e5152ba6e0d65d7efba
+
+export const APP_ROUTES: Routes = [
+    {
+        path: '',
+        redirectTo: 'home',
+        pathMatch: 'full'
+    },
+    {
+        path: 'home',
+        component: HomeComponent
+    },
+    {
+        path: 'invoices',
+        component: InvoiceSearchComponent
+    },
+    {
+        path: 'tenants',
+        component: TenantSearchComponent
+    },
+    {
+        path: 'login',
+        component: LoginComponent
+    },
+    {
+        path: 'users',
+        component: UserSearchComponent
+    },
+    {
+        path: 'customers',
+        component: CustomerSearchComponent
+    },
+    {
+      path: 'positions',
+      component: PositionSearchComponent
+    },
+    {
+        path: '**',
+        redirectTo: 'home'
+    }
+];
