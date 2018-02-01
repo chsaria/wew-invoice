@@ -14,6 +14,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { LoginComponent } from './Login/Login.component';
 import { FormsModule } from '@angular/forms';
+import { InvoiceManagementModule } from './invoice-management/invoice-management.module';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { FormsModule } from '@angular/forms';
     TenantManagementModule,
     UserManagementModule,
     CustomerManagementModule,
+    InvoiceManagementModule,
     RouterModule.forRoot(APP_ROUTES),
     FormsModule
   ],

@@ -1,0 +1,23 @@
+<header>
+  <h1>Invoices</h1>
+</header>
+<main>
+  <div>
+    <h2>Search</h2>
+    <form>
+      <div class="form-row">
+        <label>Name</label>
+        <input [(ngModel)]="name" name="name" class="form-control" class="form-control">
+        <button (click)="search()" class="btn btn-default">Search</button>
+      </div>
+      <div class="form-row">
+          <button (click)="new()" class="btn btn-default">New</button>
+        </div>
+    </form>
+  </div>
+  <div *ngFor="let t of invoices">
+    <app-invoice-card [item]="t" (delete)="delete($event)">
+
+    </app-invoice-card>
+  </div>
+</main>

@@ -1,0 +1,61 @@
+<header>
+  <h1>Invoices</h1>
+  <h2>Edit invoice {{invoice.InvoiceNumber}}</h2>
+</header>
+<main>
+  <form>
+    <div class="form-group">
+      <label>Invoice number</label>
+      <input [ngModel]="invoice.InvoiceNumber" name="invoicenumber" class="form-control" disabled="disabled">
+    </div>
+    <div class="form-group">
+      <label>Date</label>
+      <input [ngModel]="invoice.CreatedAtUtc | date: 'dd.MM.yyyy'" name="createdatutc" class="form-control" disabled="disabled">
+    </div>
+    <div class="form-group">
+      <label>Customer</label>
+      <select [(ngModel)]="invoice.Customer_id" class="form-control">
+        <option *ngFor="let customer of customers" [value]="customer._id">{{customer.Name}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Customer reference</label>
+      <input [(ngModel)]="invoice.CustomerReference" name="customerReference" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Comment</label>
+      <input [(ngModel)]="invoice.Comment" name="comment" class="form-control">
+    </div>
+    <div>
+      <p>Items</p>
+      <div class="form-group">
+        <label>Add item</label>
+        <select [(ngModel)]="currentAddPosition" class="form-control" [ngModelOptions]="{standalone:true}">
+          <option *ngFor="let position of positions" [value]="position._id">{{position.Name}}</option>
+        </select>
+        <button class="btn btn-default" (click)="addItem()">+</button>
+      </div>
+      <table>
+        <thead>
+          <th>Short</th>
+          <th>Name</th>
+          <th>Comment</th>
+          <th>Amount</th>
+          <th>NetPrice</th>
+          <th>Sum</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let lineitem of invoice.LineItems">
+            <td>*Short</td>
+            <td>*Name</td>
+            <td><input [(ngModel)]="lineitem.Comment" class="form-control"></td>
+            <td><input [(ngModel)]="lineitem.Count" class="form-control"></td>
+            <td><input [(ngModel)]="lineitem.NetPrice" class="form-control"></td>
+            <td>{{getItemSum(lineitem)}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <button class="btn btn-default" (click)="save()">Save</button>
+  </form>
+</main>

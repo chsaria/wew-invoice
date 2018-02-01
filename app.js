@@ -37,15 +37,19 @@ app.use('/tenants/*', express.static(path.join(__dirname, 'dist')));
 app.use('/tenant', tenant);
 
 app.use('/customers', express.static(path.join(__dirname, 'dist')));
+app.use('/customers/*', express.static(path.join(__dirname, 'dist')));
 app.use('/customer', customer);
 
 app.use('/invoices', express.static(path.join(__dirname, 'dist')));
+app.use('/invoices/*', express.static(path.join(__dirname, 'dist')));
 app.use('/invoice', tenant);
 
 app.use('/lineItems', express.static(path.join(__dirname, 'dist')));
+app.use('/lineItems/*', express.static(path.join(__dirname, 'dist')));
 app.use('/lineItem', tenant);
 
 app.use('/positions', express.static(path.join(__dirname, 'dist')));
+app.use('/positions/*', express.static(path.join(__dirname, 'dist')));
 app.use('/position', tenant);
 
 

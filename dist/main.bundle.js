@@ -101,7 +101,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/Login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"col-md-6 col-md-offset-3\">\n  <div class=\"alert alert-info\">\n      Username: test<br />\n      Password: test\n  </div>\n  <h2>Login</h2>\n  <form name=\"form\" (ngSubmit)=\"f.form.valid && login()\" #f=\"ngForm\" novalidate>\n      <div class=\"form-group\" [ngClass]=\"{ 'has-error': f.submitted && !username.valid }\">\n          <label for=\"username\">Username</label>\n          <input type=\"text\" class=\"form-control\" name=\"username\" [(ngModel)]=\"model.username\" #username=\"ngModel\" required />\n          <div *ngIf=\"f.submitted && !username.valid\" class=\"help-block\">Username is required</div>\n      </div>\n      <div class=\"form-group\" [ngClass]=\"{ 'has-error': f.submitted && !password.valid }\">\n          <label for=\"password\">Password</label>\n          <input type=\"password\" class=\"form-control\" name=\"password\" [(ngModel)]=\"model.password\" #password=\"ngModel\" required />\n          <div *ngIf=\"f.submitted && !password.valid\" class=\"help-block\">Password is required</div>\n      </div>\n      <div class=\"form-group\">\n          <button [disabled]=\"loading\" class=\"btn btn-primary\">Login</button>\n          <img *ngIf=\"loading\" src=\"data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==\" />\n      </div>\n      <div *ngIf=\"error\" class=\"alert alert-danger\">{{error}}</div>\n  </form>\n</div>"
+module.exports = "<div class=\"col-md-6 col-md-offset-3\">\r\n  <div class=\"alert alert-info\">\r\n      Username: test<br />\r\n      Password: test\r\n  </div>\r\n  <h2>Login</h2>\r\n  <form name=\"form\" (ngSubmit)=\"f.form.valid && login()\" #f=\"ngForm\" novalidate>\r\n      <div class=\"form-group\" [ngClass]=\"{ 'has-error': f.submitted && !username.valid }\">\r\n          <label for=\"username\">Username</label>\r\n          <input type=\"text\" class=\"form-control\" name=\"username\" [(ngModel)]=\"model.username\" #username=\"ngModel\" required />\r\n          <div *ngIf=\"f.submitted && !username.valid\" class=\"help-block\">Username is required</div>\r\n      </div>\r\n      <div class=\"form-group\" [ngClass]=\"{ 'has-error': f.submitted && !password.valid }\">\r\n          <label for=\"password\">Password</label>\r\n          <input type=\"password\" class=\"form-control\" name=\"password\" [(ngModel)]=\"model.password\" #password=\"ngModel\" required />\r\n          <div *ngIf=\"f.submitted && !password.valid\" class=\"help-block\">Password is required</div>\r\n      </div>\r\n      <div class=\"form-group\">\r\n          <button [disabled]=\"loading\" class=\"btn btn-primary\">Login</button>\r\n          <img *ngIf=\"loading\" src=\"data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==\" />\r\n      </div>\r\n      <div *ngIf=\"error\" class=\"alert alert-danger\">{{error}}</div>\r\n  </form>\r\n</div>"
 
 /***/ }),
 
@@ -126,7 +126,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"sidebar\" data-background-color=\"white\" data-active-color=\"danger\">\n    <app-sidebar></app-sidebar>\n  </div>\n  <div class=\"main-panel\">\n    <app-navbar></app-navbar>\n    <div class=\"content\">\n      <router-outlet></router-outlet>\n    </div>\n  </div>\n</div>"
+module.exports = "<div class=\"container\">\r\n  <div class=\"sidebar\" data-background-color=\"white\" data-active-color=\"danger\">\r\n    <app-sidebar></app-sidebar>\r\n  </div>\r\n  <div class=\"main-panel\">\r\n    <app-navbar></app-navbar>\r\n    <div class=\"content\">\r\n      <router-outlet></router-outlet>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -166,20 +166,22 @@ var AppComponent = (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__shared_auth_auth_service__ = __webpack_require__("../../../../../src/app/shared/auth/auth.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__user_management_user_management_module__ = __webpack_require__("../../../../../src/app/user-management/user-management.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__ = __webpack_require__("../../../platform-browser/esm5/platform-browser.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common_http__ = __webpack_require__("../../../common/esm5/http.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__tenant_management_tenant_management_module__ = __webpack_require__("../../../../../src/app/tenant-management/tenant-management.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__home_home_component__ = __webpack_require__("../../../../../src/app/home/home.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__app_routes__ = __webpack_require__("../../../../../src/app/app.routes.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__navbar_navbar_component__ = __webpack_require__("../../../../../src/app/navbar/navbar.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__sidebar_sidebar_component__ = __webpack_require__("../../../../../src/app/sidebar/sidebar.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__Login_Login_component__ = __webpack_require__("../../../../../src/app/Login/Login.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__customer_management_customer_management_module__ = __webpack_require__("../../../../../src/app/customer-management/customer-management.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__shared_auth_auth_service__ = __webpack_require__("../../../../../src/app/shared/auth/auth.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__user_management_user_management_module__ = __webpack_require__("../../../../../src/app/user-management/user-management.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__ = __webpack_require__("../../../platform-browser/esm5/platform-browser.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_common_http__ = __webpack_require__("../../../common/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__tenant_management_tenant_management_module__ = __webpack_require__("../../../../../src/app/tenant-management/tenant-management.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__home_home_component__ = __webpack_require__("../../../../../src/app/home/home.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__app_routes__ = __webpack_require__("../../../../../src/app/app.routes.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__navbar_navbar_component__ = __webpack_require__("../../../../../src/app/navbar/navbar.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__sidebar_sidebar_component__ = __webpack_require__("../../../../../src/app/sidebar/sidebar.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__Login_Login_component__ = __webpack_require__("../../../../../src/app/Login/Login.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__invoice_management_invoice_management_module__ = __webpack_require__("../../../../../src/app/invoice-management/invoice-management.module.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -200,30 +202,34 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
+
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["I" /* NgModule */])({
+        Object(__WEBPACK_IMPORTED_MODULE_4__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */],
-                __WEBPACK_IMPORTED_MODULE_7__home_home_component__["a" /* HomeComponent */],
-                __WEBPACK_IMPORTED_MODULE_10__navbar_navbar_component__["a" /* NavbarComponent */],
-                __WEBPACK_IMPORTED_MODULE_11__sidebar_sidebar_component__["a" /* SidebarComponent */],
-                __WEBPACK_IMPORTED_MODULE_12__Login_Login_component__["a" /* LoginComponent */]
+                __WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */],
+                __WEBPACK_IMPORTED_MODULE_8__home_home_component__["a" /* HomeComponent */],
+                __WEBPACK_IMPORTED_MODULE_11__navbar_navbar_component__["a" /* NavbarComponent */],
+                __WEBPACK_IMPORTED_MODULE_12__sidebar_sidebar_component__["a" /* SidebarComponent */],
+                __WEBPACK_IMPORTED_MODULE_13__Login_Login_component__["a" /* LoginComponent */]
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__["a" /* BrowserModule */],
-                __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["b" /* HttpClientModule */],
-                __WEBPACK_IMPORTED_MODULE_6__tenant_management_tenant_management_module__["a" /* TenantManagementModule */],
-                __WEBPACK_IMPORTED_MODULE_1__user_management_user_management_module__["a" /* UserManagementModule */],
-                __WEBPACK_IMPORTED_MODULE_8__angular_router__["c" /* RouterModule */].forRoot(__WEBPACK_IMPORTED_MODULE_9__app_routes__["a" /* APP_ROUTES */]),
-                __WEBPACK_IMPORTED_MODULE_13__angular_forms__["a" /* FormsModule */]
+                __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__["a" /* BrowserModule */],
+                __WEBPACK_IMPORTED_MODULE_5__angular_common_http__["b" /* HttpClientModule */],
+                __WEBPACK_IMPORTED_MODULE_7__tenant_management_tenant_management_module__["a" /* TenantManagementModule */],
+                __WEBPACK_IMPORTED_MODULE_2__user_management_user_management_module__["a" /* UserManagementModule */],
+                __WEBPACK_IMPORTED_MODULE_0__customer_management_customer_management_module__["a" /* CustomerManagementModule */],
+                __WEBPACK_IMPORTED_MODULE_15__invoice_management_invoice_management_module__["a" /* InvoiceManagementModule */],
+                __WEBPACK_IMPORTED_MODULE_9__angular_router__["c" /* RouterModule */].forRoot(__WEBPACK_IMPORTED_MODULE_10__app_routes__["a" /* APP_ROUTES */]),
+                __WEBPACK_IMPORTED_MODULE_14__angular_forms__["a" /* FormsModule */]
             ],
             providers: [
-                __WEBPACK_IMPORTED_MODULE_0__shared_auth_auth_service__["a" /* AuthService */]
+                __WEBPACK_IMPORTED_MODULE_1__shared_auth_auth_service__["a" /* AuthService */]
             ],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */]]
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
     return AppModule;
@@ -238,10 +244,14 @@ var AppModule = (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return APP_ROUTES; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__tenant_management_tenant_search_tenant_search_component__ = __webpack_require__("../../../../../src/app/tenant-management/tenant-search/tenant-search.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__home_home_component__ = __webpack_require__("../../../../../src/app/home/home.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Login_Login_component__ = __webpack_require__("../../../../../src/app/Login/Login.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__user_management_user_search_user_search_component__ = __webpack_require__("../../../../../src/app/user-management/user-search/user-search.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__customer_management_customer_search_customer_search_component__ = __webpack_require__("../../../../../src/app/customer-management/customer-search/customer-search.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__tenant_management_tenant_search_tenant_search_component__ = __webpack_require__("../../../../../src/app/tenant-management/tenant-search/tenant-search.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_home_component__ = __webpack_require__("../../../../../src/app/home/home.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Login_Login_component__ = __webpack_require__("../../../../../src/app/Login/Login.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__user_management_user_search_user_search_component__ = __webpack_require__("../../../../../src/app/user-management/user-search/user-search.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__invoice_management_invoice_search_invoice_search_component__ = __webpack_require__("../../../../../src/app/invoice-management/invoice-search/invoice-search.component.ts");
+
+
 
 
 
@@ -254,25 +264,540 @@ var APP_ROUTES = [
     },
     {
         path: 'home',
-        component: __WEBPACK_IMPORTED_MODULE_1__home_home_component__["a" /* HomeComponent */]
+        component: __WEBPACK_IMPORTED_MODULE_2__home_home_component__["a" /* HomeComponent */]
+    },
+    {
+        path: 'invoices',
+        component: __WEBPACK_IMPORTED_MODULE_5__invoice_management_invoice_search_invoice_search_component__["a" /* InvoiceSearchComponent */]
     },
     {
         path: 'tenants',
-        component: __WEBPACK_IMPORTED_MODULE_0__tenant_management_tenant_search_tenant_search_component__["a" /* TenantSearchComponent */]
+        component: __WEBPACK_IMPORTED_MODULE_1__tenant_management_tenant_search_tenant_search_component__["a" /* TenantSearchComponent */]
     },
     {
         path: 'login',
-        component: __WEBPACK_IMPORTED_MODULE_2__Login_Login_component__["a" /* LoginComponent */]
+        component: __WEBPACK_IMPORTED_MODULE_3__Login_Login_component__["a" /* LoginComponent */]
     },
     {
         path: 'users',
-        component: __WEBPACK_IMPORTED_MODULE_3__user_management_user_search_user_search_component__["a" /* UserSearchComponent */]
+        component: __WEBPACK_IMPORTED_MODULE_4__user_management_user_search_user_search_component__["a" /* UserSearchComponent */]
+    },
+    {
+        path: 'customers',
+        component: __WEBPACK_IMPORTED_MODULE_0__customer_management_customer_search_customer_search_component__["a" /* CustomerSearchComponent */]
     },
     {
         path: '**',
         redirectTo: 'home'
     }
 ];
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/customer-management/customer-card/customer-card.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/customer-management/customer-card/customer-card.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div>\r\n  <div>C: {{item.Name}}</div>\r\n</div>\r\n<app-card>\r\n  <div card-header>Customer: {{item.Name}}</div>\r\n  <div card-content>\r\n    <dl>\r\n      <dt>Name</dt>\r\n      <dd>{{item.Name}}</dd>\r\n      <dt>Zipcode</dt>\r\n      <dd>{{item.Zipcode}}</dd>\r\n      <dt>City</dt>\r\n      <dd>{{item.City}}</dd>\r\n    </dl>\r\n  </div>\r\n  <div card-footer>\r\n    <button [routerLink]=\"['/customers/' + item._id]\">Edit</button>\r\n    <button>Delete</button>\r\n  </div>\r\n</app-card>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/customer-management/customer-card/customer-card.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CustomerCardComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var CustomerCardComponent = (function () {
+    function CustomerCardComponent() {
+    }
+    CustomerCardComponent.prototype.ngOnInit = function () {
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
+        __metadata("design:type", Object)
+    ], CustomerCardComponent.prototype, "item", void 0);
+    CustomerCardComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-customer-card',
+            template: __webpack_require__("../../../../../src/app/customer-management/customer-card/customer-card.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/customer-management/customer-card/customer-card.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], CustomerCardComponent);
+    return CustomerCardComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/customer-management/customer-edit/customer-edit.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/customer-management/customer-edit/customer-edit.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "  <header>\r\n    <h1>Customers</h1>\r\n    <h2>Edit customer {{customer.Name}}</h2>\r\n  </header>\r\n  <main>\r\n    <form>\r\n      <div class=\"form-group\">\r\n        <label>Name</label>\r\n        <input [(ngModel)]=\"customer.Name\" name=\"name\" class=\"form-control\">\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label>Address</label>\r\n        <input [(ngModel)]=\"customer.Address1\" name=\"address1\" class=\"form-control\">\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label></label>\r\n        <input [(ngModel)]=\"customer.Address2\" name=\"address2\" class=\"form-control\">\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label></label>\r\n        <input [(ngModel)]=\"customer.Address3\" name=\"address3\" class=\"form-control\">\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label>Zip code</label>\r\n        <input [(ngModel)]=\"customer.Zipcode\" name=\"zipcode\" class=\"form-control\">\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label>City</label>\r\n        <input [(ngModel)]=\"customer.City\" name=\"city\" class=\"form-control\">\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label>Phone number</label>\r\n        <input [(ngModel)]=\"customer.Phonenumber\" name=\"phonenumber\" class=\"form-control\">\r\n      </div>\r\n      <button class=\"btn btn-default\" (click)=\"save()\">Save</button>\r\n    </form>\r\n  </main>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/customer-management/customer-edit/customer-edit.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CustomerEditComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__customer_service_customer_service__ = __webpack_require__("../../../../../src/app/customer-management/customer-service/customer.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var CustomerEditComponent = (function () {
+    function CustomerEditComponent(customerService, router, route) {
+        this.customerService = customerService;
+        this.router = router;
+        this.route = route;
+    }
+    CustomerEditComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.route.params.subscribe(function (params) {
+            console.log('1');
+            _this.id = params['id'];
+            console.log('2');
+            if (_this.id === '') {
+                console.log('3');
+                return;
+            }
+            else if (_this.id === 'new') {
+                console.log('4');
+                _this.customer = {
+                    _id: '',
+                    Name: '',
+                    Address1: '',
+                    Address2: '',
+                    Address3: '',
+                    City: '',
+                    Zipcode: '',
+                    Phonenumber: '',
+                    CreatedAtUtc: null,
+                    ModifiedAtUtc: null,
+                };
+                console.log('5');
+            }
+            else {
+                console.log('6');
+                _this.customerService.findById(_this.id).subscribe(function (customer) { console.log('7'); _this.customer = customer; _this.errors = ''; }, function (error) { console.log('8'); _this.errors = 'Error loading customer'; });
+            }
+        });
+    };
+    CustomerEditComponent.prototype.save = function () {
+        if (this.id === 'new') {
+            this.createNew();
+        }
+        else {
+            this.update();
+        }
+    };
+    CustomerEditComponent.prototype.createNew = function () {
+        var _this = this;
+        this.customerService.create(this.customer).subscribe(function (customer) {
+            _this.customer = customer;
+            _this.errors = 'Creating was successful!';
+        }, function (err) {
+            _this.errors = 'Error saving customer';
+        });
+    };
+    CustomerEditComponent.prototype.update = function () {
+        var _this = this;
+        this.customerService.update(this.customer).subscribe(function (customer) {
+            _this.customer = customer;
+            _this.errors = 'Updating was successful!';
+        }, function (err) {
+            _this.errors = 'Error saving customer';
+        });
+    };
+    CustomerEditComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-customer-edit',
+            template: __webpack_require__("../../../../../src/app/customer-management/customer-edit/customer-edit.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/customer-management/customer-edit/customer-edit.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__customer_service_customer_service__["a" /* CustomerService */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]])
+    ], CustomerEditComponent);
+    return CustomerEditComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/customer-management/customer-management.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/customer-management/customer-management.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\r\n  customer-management works!\r\n</p>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/customer-management/customer-management.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CustomerManagementComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var CustomerManagementComponent = (function () {
+    function CustomerManagementComponent() {
+    }
+    CustomerManagementComponent.prototype.ngOnInit = function () {
+    };
+    CustomerManagementComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-customer-management',
+            template: __webpack_require__("../../../../../src/app/customer-management/customer-management.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/customer-management/customer-management.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], CustomerManagementComponent);
+    return CustomerManagementComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/customer-management/customer-management.module.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CustomerManagementModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__customer_management_routes__ = __webpack_require__("../../../../../src/app/customer-management/customer-management.routes.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__shared_shared_module__ = __webpack_require__("../../../../../src/app/shared/shared.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common__ = __webpack_require__("../../../common/esm5/common.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__customer_card_customer_card_component__ = __webpack_require__("../../../../../src/app/customer-management/customer-card/customer-card.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__customer_edit_customer_edit_component__ = __webpack_require__("../../../../../src/app/customer-management/customer-edit/customer-edit.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__customer_search_customer_search_component__ = __webpack_require__("../../../../../src/app/customer-management/customer-search/customer-search.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__customer_management_component__ = __webpack_require__("../../../../../src/app/customer-management/customer-management.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__customer_service_customer_service__ = __webpack_require__("../../../../../src/app/customer-management/customer-service/customer.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+
+
+
+
+
+
+var CustomerManagementModule = (function () {
+    function CustomerManagementModule() {
+    }
+    CustomerManagementModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["I" /* NgModule */])({
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_3__angular_common__["b" /* CommonModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormsModule */],
+                __WEBPACK_IMPORTED_MODULE_1__shared_shared_module__["a" /* SharedModule */],
+                __WEBPACK_IMPORTED_MODULE_5__angular_router__["c" /* RouterModule */].forChild(__WEBPACK_IMPORTED_MODULE_0__customer_management_routes__["a" /* CUSTOMER_MANAGEMENT_ROUTES */])
+            ],
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_9__customer_management_component__["a" /* CustomerManagementComponent */],
+                __WEBPACK_IMPORTED_MODULE_6__customer_card_customer_card_component__["a" /* CustomerCardComponent */],
+                __WEBPACK_IMPORTED_MODULE_7__customer_edit_customer_edit_component__["a" /* CustomerEditComponent */],
+                __WEBPACK_IMPORTED_MODULE_8__customer_search_customer_search_component__["a" /* CustomerSearchComponent */]
+            ],
+            providers: [
+                __WEBPACK_IMPORTED_MODULE_10__customer_service_customer_service__["a" /* CustomerService */]
+            ],
+            exports: [
+                __WEBPACK_IMPORTED_MODULE_8__customer_search_customer_search_component__["a" /* CustomerSearchComponent */]
+            ]
+        })
+    ], CustomerManagementModule);
+    return CustomerManagementModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/customer-management/customer-management.routes.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CUSTOMER_MANAGEMENT_ROUTES; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__customer_edit_customer_edit_component__ = __webpack_require__("../../../../../src/app/customer-management/customer-edit/customer-edit.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__customer_search_customer_search_component__ = __webpack_require__("../../../../../src/app/customer-management/customer-search/customer-search.component.ts");
+
+
+var CUSTOMER_MANAGEMENT_ROUTES = [
+    {
+        path: 'customers',
+        component: __WEBPACK_IMPORTED_MODULE_1__customer_search_customer_search_component__["a" /* CustomerSearchComponent */]
+    },
+    {
+        path: 'customers/:id',
+        component: __WEBPACK_IMPORTED_MODULE_0__customer_edit_customer_edit_component__["a" /* CustomerEditComponent */]
+    }
+];
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/customer-management/customer-search/customer-search.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/customer-management/customer-search/customer-search.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<header>\r\n  <h1>Customers</h1>\r\n</header>\r\n<main>\r\n  <div>\r\n    <h2>Search</h2>\r\n    <form>\r\n      <div class=\"form-row\">\r\n        <label>Name</label>\r\n        <input [(ngModel)]=\"name\" name=\"name\" class=\"form-control\" class=\"form-control\">\r\n      </div>\r\n      <div class=\"form-row\">\r\n        <button (click)=\"search()\" class=\"btn btn-default\">Search</button>\r\n      </div>\r\n      <div class=\"form-row\">\r\n          <button (click)=\"new()\" class=\"btn btn-default\">New</button>\r\n        </div>\r\n    </form>\r\n  </div>\r\n  <div *ngFor=\"let c of costumers\">\r\n    <app-customer-card [item]=\"c\">\r\n\r\n    </app-customer-card>\r\n  </div>\r\n</main>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/customer-management/customer-search/customer-search.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CustomerSearchComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__customer_service_customer_service__ = __webpack_require__("../../../../../src/app/customer-management/customer-service/customer.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var CustomerSearchComponent = (function () {
+    function CustomerSearchComponent(customerService, router) {
+        this.customerService = customerService;
+        this.router = router;
+        this.customers = [];
+    }
+    CustomerSearchComponent.prototype.ngOnInit = function () {
+        this.search();
+    };
+    CustomerSearchComponent.prototype.search = function () {
+        var _this = this;
+        this.customerService
+            .find(this.name)
+            .subscribe(function (customer) {
+            _this.customers = customer;
+        }, function (errResp) {
+            console.error('Error loading customers', errResp);
+        });
+    };
+    CustomerSearchComponent.prototype.select = function (c) {
+        this.selectedCustomer = c;
+    };
+    CustomerSearchComponent.prototype.new = function () {
+        this.router.navigate(['/customers/new']);
+    };
+    CustomerSearchComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["n" /* Component */])({
+            selector: 'app-customer-search',
+            template: __webpack_require__("../../../../../src/app/customer-management/customer-search/customer-search.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/customer-management/customer-search/customer-search.component.css")],
+            providers: [__WEBPACK_IMPORTED_MODULE_2__customer_service_customer_service__["a" /* CustomerService */]]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__customer_service_customer_service__["a" /* CustomerService */], __WEBPACK_IMPORTED_MODULE_0__angular_router__["b" /* Router */]])
+    ], CustomerSearchComponent);
+    return CustomerSearchComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/customer-management/customer-service/customer.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CustomerService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("../../../common/esm5/http.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var CustomerService = (function () {
+    function CustomerService(http) {
+        this.http = http;
+    }
+    /* GET all (filtered) customers */
+    CustomerService.prototype.find = function (name) {
+        var url = '/customer';
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["c" /* HttpHeaders */]()
+            .set('Accept', 'application/json');
+        var params = new __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["d" /* HttpParams */]()
+            .set('name', name);
+        return this
+            .http
+            .get(url, { headers: headers, params: params });
+    };
+    CustomerService.prototype.findById = function (id) {
+        var url = '/customer/' + id;
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["c" /* HttpHeaders */]()
+            .set('Accept', 'application/json');
+        /*const params = new HttpParams()
+                                .set('id', id);*/
+        return this
+            .http
+            .get(url, { headers: headers });
+    };
+    CustomerService.prototype.create = function (customerToSave) {
+        var url = '/customer';
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["c" /* HttpHeaders */]()
+            .set('Accept', 'application/json');
+        return this
+            .http
+            .post(url, customerToSave, { headers: headers });
+    };
+    CustomerService.prototype.update = function (customerToSave) {
+        var id = customerToSave._id;
+        var url = '/customer/' + id;
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["c" /* HttpHeaders */]()
+            .set('Accept', 'application/json');
+        /*const params = new HttpParams()
+                            .set('id', CustomerToSave.Id);*/
+        return this
+            .http
+            .put(url, customerToSave, { headers: headers });
+    };
+    CustomerService.prototype.delete = function (id) {
+        var url = '/customer/' + id;
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["c" /* HttpHeaders */]()
+            .set('Accept', 'application/json');
+        /*const params = new HttpParams()
+                            .set('id', id);*/
+        return this
+            .http
+            .delete(url, { headers: headers });
+    };
+    CustomerService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]])
+    ], CustomerService);
+    return CustomerService;
+}());
+
 
 
 /***/ }),
@@ -298,7 +823,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Welcome to WEW Bill!</h1>\n<p>This is your starting page, please choose a way to go.</p>"
+module.exports = "<h1>Welcome to WEW Invoice!</h1>\r\n<p>This is your starting page, please choose a way to go.</p>"
 
 /***/ }),
 
@@ -338,6 +863,617 @@ var HomeComponent = (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/invoice-management/invoice-card/invoice-card.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/invoice-management/invoice-card/invoice-card.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<app-card>\n  <div card-header>Invoice: {{item.InvoiceNumber}}</div>\n  <div card-content>\n    <dl>\n      <dt>Invoice number</dt>\n      <dd>{{item.InvoiceNumber}}</dd>\n      <dt>Date</dt>\n      <dd>{{item.CreatedAtUtc | date: 'dd.MM.yyyy'}}</dd>\n      <dt>Amount</dt>\n      <dd>{{sum()}}</dd>\n    </dl>\n  </div>\n  <div card-footer>\n    <button [routerLink]=\"['/invoices/' + item._id]\">Edit</button>\n    <button (click)=\"deleteMe()\">Delete</button>\n  </div>\n</app-card>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/invoice-management/invoice-card/invoice-card.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return InvoiceCardComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var InvoiceCardComponent = (function () {
+    function InvoiceCardComponent() {
+        this.delete = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* EventEmitter */]();
+        this.sum = function () {
+            console.log('sum called');
+            if (this.item === null || this.item.LineItems === null) {
+                console.log('sum returning null 0');
+                return 0;
+            }
+            console.log(this.item);
+            if (this.item === undefined || this.item.LineItems === undefined) {
+                console.log('sum returning undefined 0');
+                return 0;
+            }
+            var sum = 0;
+            for (var i = 0; i < this.item.LineItems.length; i++) {
+                var curItem = this.item.LineItems[i];
+                sum += (curItem.NetPrice * (100 + curItem.TaxPercentage) * curItem.Count);
+            }
+            console.log('sum returning ' + sum);
+            return sum;
+        };
+    }
+    InvoiceCardComponent.prototype.deleteMe = function () {
+        this.delete.emit(this.item._id);
+    };
+    InvoiceCardComponent.prototype.ngOnInit = function () {
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
+        __metadata("design:type", Object)
+    ], InvoiceCardComponent.prototype, "item", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["P" /* Output */])(),
+        __metadata("design:type", Object)
+    ], InvoiceCardComponent.prototype, "delete", void 0);
+    InvoiceCardComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-invoice-card',
+            template: __webpack_require__("../../../../../src/app/invoice-management/invoice-card/invoice-card.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/invoice-management/invoice-card/invoice-card.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], InvoiceCardComponent);
+    return InvoiceCardComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/invoice-management/invoice-edit/invoice-edit.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/invoice-management/invoice-edit/invoice-edit.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<header>\n  <h1>Invoices</h1>\n  <h2>Edit invoice {{invoice.InvoiceNumber}}</h2>\n</header>\n<main>\n  <form>\n    <div class=\"form-group\">\n      <label>Invoice number</label>\n      <input [ngModel]=\"invoice.InvoiceNumber\" name=\"invoicenumber\" class=\"form-control\" disabled=\"disabled\">\n    </div>\n    <div class=\"form-group\">\n      <label>Date</label>\n      <input [ngModel]=\"invoice.CreatedAtUtc | date: 'dd.MM.yyyy'\" name=\"createdatutc\" class=\"form-control\" disabled=\"disabled\">\n    </div>\n    <div class=\"form-group\">\n      <label>Customer</label>\n      <select [(ngModel)]=\"invoice.Customer_id\" class=\"form-control\">\n        <option *ngFor=\"let customer of customers\" [value]=\"customer._id\">{{customer.Name}}</option>\n      </select>\n    </div>\n    <div class=\"form-group\">\n      <label>Customer reference</label>\n      <input [(ngModel)]=\"invoice.CustomerReference\" name=\"customerReference\" class=\"form-control\">\n    </div>\n    <div class=\"form-group\">\n      <label>Comment</label>\n      <input [(ngModel)]=\"invoice.Comment\" name=\"comment\" class=\"form-control\">\n    </div>\n    <div>\n      <p>Items</p>\n      <div class=\"form-group\">\n        <label>Add item</label>\n        <select [(ngModel)]=\"currentAddPosition\" class=\"form-control\" [ngModelOptions]=\"{standalone:true}\">\n          <option *ngFor=\"let position of positions\" [value]=\"position._id\">{{position.Name}}</option>\n        </select>\n        <button class=\"btn btn-default\" (click)=\"addItem()\">+</button>\n      </div>\n      <table>\n        <thead>\n          <th>Short</th>\n          <th>Name</th>\n          <th>Comment</th>\n          <th>Amount</th>\n          <th>NetPrice</th>\n          <th>Sum</th>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let lineitem of invoice.LineItems\">\n            <td>*Short</td>\n            <td>*Name</td>\n            <td><input [(ngModel)]=\"lineitem.Comment\" class=\"form-control\"></td>\n            <td><input [(ngModel)]=\"lineitem.Count\" class=\"form-control\"></td>\n            <td><input [(ngModel)]=\"lineitem.NetPrice\" class=\"form-control\"></td>\n            <td>{{getItemSum(lineitem)}}</td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n    <button class=\"btn btn-default\" (click)=\"save()\">Save</button>\n  </form>\n</main>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/invoice-management/invoice-edit/invoice-edit.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return InvoiceEditComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__invoice_service__ = __webpack_require__("../../../../../src/app/invoice-management/invoice.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__customer_management_customer_service_customer_service__ = __webpack_require__("../../../../../src/app/customer-management/customer-service/customer.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var InvoiceEditComponent = (function () {
+    function InvoiceEditComponent(invoiceService, customerService, router, route) {
+        this.invoiceService = invoiceService;
+        this.customerService = customerService;
+        this.router = router;
+        this.route = route;
+        this.positions = [];
+        this.customers = [];
+    }
+    InvoiceEditComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.route.params.subscribe(function (params) {
+            console.log('1');
+            _this.id = params['id'];
+            console.log('2');
+            _this.customerService
+                .find('')
+                .subscribe(function (customers) {
+                console.log('got customers');
+                console.log(customers);
+                _this.customers = customers;
+            }, function (errResp) {
+                console.error('Error loading customers', errResp);
+            });
+            if (_this.id === '') {
+                console.log('3');
+                return;
+            }
+            else if (_this.id === 'new') {
+                console.log('4');
+                _this.invoice = {
+                    _id: '',
+                    InvoiceNumber: '',
+                    Customer_id: '',
+                    CustomerReference: '',
+                    Comment: '',
+                    CreatedAtUtc: null,
+                    ModifiedAtUtc: null,
+                    LineItems: [],
+                    PaidAtUtc: null,
+                    CancelledAtUtc: null,
+                    Discount: 0
+                };
+                console.log('5');
+            }
+            else {
+                console.log('6');
+                _this.invoiceService.findById(_this.id).subscribe(function (invoice) { console.log('7'); _this.invoice = invoice; _this.errors = ''; }, function (error) { console.log('8'); _this.errors = 'Error loading invoice'; });
+            }
+        });
+    };
+    InvoiceEditComponent.prototype.getItemSum = function (lineItem) {
+        if (lineItem === null) {
+            return 0;
+        }
+        var tax = 1;
+        for (var i = 0; i < this.positions.length; i++) {
+            if (this.positions[i]._id === lineItem.Position_id) {
+                tax = this.positions[i].TaxPercentage + 1;
+                break;
+            }
+        }
+        return lineItem.NetPrice * tax * lineItem.Count;
+    };
+    InvoiceEditComponent.prototype.addItem = function () {
+        if (this.invoice !== null && this.currentAddPosition !== null) {
+            for (var i = 0; i < this.invoice.LineItems.length; i++) {
+                if (this.invoice.LineItems[i].Position_id === this.currentAddPosition._id) {
+                    this.invoice.LineItems[i].Count += 1;
+                    return;
+                }
+            }
+            this.invoice.LineItems.push({
+                _id: '',
+                Comment: '',
+                NetPrice: this.currentAddPosition.NetDefaultPrice,
+                TaxPercentage: this.currentAddPosition.TaxPercentage,
+                Count: this.currentAddPosition.DefaultCount,
+                Invoice_id: this.invoice._id,
+                Position_id: this.currentAddPosition._id,
+                CreatedAtUtc: null,
+                ModifiedAtUtc: null
+            });
+        }
+    };
+    InvoiceEditComponent.prototype.save = function () {
+        if (this.id === 'new') {
+            this.createNew();
+        }
+        else {
+            this.update();
+        }
+    };
+    InvoiceEditComponent.prototype.createNew = function () {
+        var _this = this;
+        this.invoiceService.create(this.invoice).subscribe(function (invoice) {
+            _this.invoice = invoice;
+            _this.errors = 'Creating was successful!';
+        }, function (err) {
+            _this.errors = 'Error saving invoice';
+        });
+    };
+    InvoiceEditComponent.prototype.update = function () {
+        var _this = this;
+        this.invoiceService.update(this.invoice).subscribe(function (invoice) {
+            _this.invoice = invoice;
+            _this.errors = 'Updating was successful!';
+        }, function (err) {
+            _this.errors = 'Error saving invoice';
+        });
+    };
+    InvoiceEditComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-invoice-edit',
+            template: __webpack_require__("../../../../../src/app/invoice-management/invoice-edit/invoice-edit.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/invoice-management/invoice-edit/invoice-edit.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__invoice_service__["a" /* InvoiceService */],
+            __WEBPACK_IMPORTED_MODULE_3__customer_management_customer_service_customer_service__["a" /* CustomerService */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]])
+    ], InvoiceEditComponent);
+    return InvoiceEditComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/invoice-management/invoice-management.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/invoice-management/invoice-management.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  invoice-management works!\n</p>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/invoice-management/invoice-management.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return InvoiceManagementComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var InvoiceManagementComponent = (function () {
+    function InvoiceManagementComponent() {
+    }
+    InvoiceManagementComponent.prototype.ngOnInit = function () {
+    };
+    InvoiceManagementComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-invoice-management',
+            template: __webpack_require__("../../../../../src/app/invoice-management/invoice-management.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/invoice-management/invoice-management.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], InvoiceManagementComponent);
+    return InvoiceManagementComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/invoice-management/invoice-management.module.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return InvoiceManagementModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/esm5/common.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__invoice_management_component__ = __webpack_require__("../../../../../src/app/invoice-management/invoice-management.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared_shared_module__ = __webpack_require__("../../../../../src/app/shared/shared.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__invoice_management_routes__ = __webpack_require__("../../../../../src/app/invoice-management/invoice-management.routes.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__invoice_search_invoice_search_component__ = __webpack_require__("../../../../../src/app/invoice-management/invoice-search/invoice-search.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__invoice_card_invoice_card_component__ = __webpack_require__("../../../../../src/app/invoice-management/invoice-card/invoice-card.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__invoice_service__ = __webpack_require__("../../../../../src/app/invoice-management/invoice.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__invoice_edit_invoice_edit_component__ = __webpack_require__("../../../../../src/app/invoice-management/invoice-edit/invoice-edit.component.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+
+
+
+
+
+
+var InvoiceManagementModule = (function () {
+    function InvoiceManagementModule() {
+    }
+    InvoiceManagementModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */],
+                __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */],
+                __WEBPACK_IMPORTED_MODULE_4__shared_shared_module__["a" /* SharedModule */],
+                __WEBPACK_IMPORTED_MODULE_5__angular_router__["c" /* RouterModule */].forChild(__WEBPACK_IMPORTED_MODULE_6__invoice_management_routes__["a" /* INVOICE_MANAGEMENT_ROUTES */])
+            ],
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__invoice_management_component__["a" /* InvoiceManagementComponent */],
+                __WEBPACK_IMPORTED_MODULE_7__invoice_search_invoice_search_component__["a" /* InvoiceSearchComponent */],
+                __WEBPACK_IMPORTED_MODULE_8__invoice_card_invoice_card_component__["a" /* InvoiceCardComponent */],
+                __WEBPACK_IMPORTED_MODULE_10__invoice_edit_invoice_edit_component__["a" /* InvoiceEditComponent */],
+                __WEBPACK_IMPORTED_MODULE_8__invoice_card_invoice_card_component__["a" /* InvoiceCardComponent */]
+                // TenantSearchComponent,
+                // TenantCardComponent,
+                // TenantEditComponent,
+            ],
+            providers: [
+                // TenantService
+                __WEBPACK_IMPORTED_MODULE_9__invoice_service__["a" /* InvoiceService */]
+            ],
+            exports: [
+                // TenantSearchComponent
+                __WEBPACK_IMPORTED_MODULE_7__invoice_search_invoice_search_component__["a" /* InvoiceSearchComponent */]
+            ]
+        })
+    ], InvoiceManagementModule);
+    return InvoiceManagementModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/invoice-management/invoice-management.routes.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return INVOICE_MANAGEMENT_ROUTES; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__invoice_edit_invoice_edit_component__ = __webpack_require__("../../../../../src/app/invoice-management/invoice-edit/invoice-edit.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__invoice_search_invoice_search_component__ = __webpack_require__("../../../../../src/app/invoice-management/invoice-search/invoice-search.component.ts");
+
+
+var INVOICE_MANAGEMENT_ROUTES = [
+    {
+        path: 'invoices',
+        component: __WEBPACK_IMPORTED_MODULE_1__invoice_search_invoice_search_component__["a" /* InvoiceSearchComponent */]
+    },
+    {
+        path: 'invoices/:id',
+        component: __WEBPACK_IMPORTED_MODULE_0__invoice_edit_invoice_edit_component__["a" /* InvoiceEditComponent */]
+    }
+];
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/invoice-management/invoice-search/invoice-search.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/invoice-management/invoice-search/invoice-search.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<header>\n  <h1>Invoices</h1>\n</header>\n<main>\n  <div>\n    <h2>Search</h2>\n    <form>\n      <div class=\"form-row\">\n        <label>Name</label>\n        <input [(ngModel)]=\"name\" name=\"name\" class=\"form-control\" class=\"form-control\">\n        <button (click)=\"search()\" class=\"btn btn-default\">Search</button>\n      </div>\n      <div class=\"form-row\">\n          <button (click)=\"new()\" class=\"btn btn-default\">New</button>\n        </div>\n    </form>\n  </div>\n  <div *ngFor=\"let t of invoices\">\n    <app-invoice-card [item]=\"t\" (delete)=\"delete($event)\">\n\n    </app-invoice-card>\n  </div>\n</main>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/invoice-management/invoice-search/invoice-search.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return InvoiceSearchComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__invoice_service__ = __webpack_require__("../../../../../src/app/invoice-management/invoice.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var InvoiceSearchComponent = (function () {
+    function InvoiceSearchComponent(invoiceService, router) {
+        this.invoiceService = invoiceService;
+        this.router = router;
+        this.name = '';
+        this.invoices = [];
+    }
+    InvoiceSearchComponent.prototype.ngOnInit = function () {
+        this.search();
+    };
+    InvoiceSearchComponent.prototype.search = function () {
+        var _this = this;
+        this.invoiceService
+            .find(this.name)
+            .subscribe(function (invoices) {
+            _this.invoices = invoices;
+        }, function (errResp) {
+            console.error('Error loading invoices', errResp);
+        });
+    };
+    InvoiceSearchComponent.prototype.select = function (t) {
+        this.selectedInvoice = t;
+    };
+    InvoiceSearchComponent.prototype.deleteInvoice = function (invoice_id) {
+        var _this = this;
+        this.invoiceService
+            .delete(invoice_id)
+            .subscribe(function (success) {
+            for (var i = 0; i < _this.invoices.length; i++) {
+                if (_this.invoices[i]._id === invoice_id) {
+                    _this.invoices.splice(i, 1);
+                    break;
+                }
+            }
+        }, function (errResp) {
+            console.error('Error deleting invoice', errResp);
+        });
+    };
+    InvoiceSearchComponent.prototype.delete = function (event) {
+        this.deleteInvoice(event);
+    };
+    InvoiceSearchComponent.prototype.new = function () {
+        this.router.navigate(['/invoices/new']);
+    };
+    InvoiceSearchComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-invoice-search',
+            template: __webpack_require__("../../../../../src/app/invoice-management/invoice-search/invoice-search.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/invoice-management/invoice-search/invoice-search.component.css")],
+            providers: [__WEBPACK_IMPORTED_MODULE_1__invoice_service__["a" /* InvoiceService */]]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__invoice_service__["a" /* InvoiceService */], __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]])
+    ], InvoiceSearchComponent);
+    return InvoiceSearchComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/invoice-management/invoice.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return InvoiceService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("../../../common/esm5/http.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var InvoiceService = (function () {
+    function InvoiceService(http) {
+        this.http = http;
+    }
+    /* GET all (filtered) invoices */
+    InvoiceService.prototype.find = function (name) {
+        var url = '/invoice';
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["c" /* HttpHeaders */]()
+            .set('Accept', 'application/json');
+        var params = new __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["d" /* HttpParams */]()
+            .set('name', name);
+        return this
+            .http
+            .get(url, { headers: headers, params: params });
+    };
+    InvoiceService.prototype.findById = function (id) {
+        var url = '/invoice/' + id;
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["c" /* HttpHeaders */]()
+            .set('Accept', 'application/json');
+        /*const params = new HttpParams()
+                                .set('id', id);*/
+        return this
+            .http
+            .get(url, { headers: headers });
+    };
+    InvoiceService.prototype.create = function (invoiceToSave) {
+        var url = '/invoice';
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["c" /* HttpHeaders */]()
+            .set('Accept', 'application/json');
+        return this
+            .http
+            .post(url, invoiceToSave, { headers: headers });
+    };
+    InvoiceService.prototype.update = function (invoiceToSave) {
+        var id = invoiceToSave._id;
+        var url = '/invoice/' + id;
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["c" /* HttpHeaders */]()
+            .set('Accept', 'application/json');
+        /*const params = new HttpParams()
+                            .set('id', invoiceToSave.Id);*/
+        return this
+            .http
+            .put(url, invoiceToSave, { headers: headers });
+    };
+    InvoiceService.prototype.delete = function (id) {
+        var url = '/invoice/' + id;
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["c" /* HttpHeaders */]()
+            .set('Accept', 'application/json');
+        /*const params = new HttpParams()
+                            .set('id', id);*/
+        return this
+            .http
+            .delete(url, { headers: headers });
+    };
+    InvoiceService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]])
+    ], InvoiceService);
+    return InvoiceService;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/navbar/navbar.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -359,7 +1495,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/navbar/navbar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n  <a class=\"navbar-brand\" routerLink=\"/home\">WEW Bill</a>\n  <div class=\"collapse navbar-collapse\" id=\"navbarMenuMain\">\n    <ul class=\"navbar-nav mr-auto\">\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" routerLink=\"/bills\">Bills</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" routerLink=\"/tenants\">Customers</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" routerLink=\"/positions\">Positions</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" routerLink=\"/tenants\">Tenants</a>\n      </li>\n    </ul>\n  </div>\n</nav>"
+module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\r\n  <a class=\"navbar-brand\" routerLink=\"/home\">WEW Invoice</a>\r\n  <div class=\"collapse navbar-collapse\" id=\"navbarMenuMain\">\r\n    <ul class=\"navbar-nav mr-auto\">\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" routerLink=\"/invoices\">Invoices</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" routerLink=\"/customers\">Customers</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" routerLink=\"/positions\">Positions</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" routerLink=\"/tenants\">Tenants</a>\r\n      </li>\r\n    </ul>\r\n  </div>\r\n</nav>\r\n"
 
 /***/ }),
 
@@ -483,7 +1619,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/shared/card/card.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card col-xs-12 col-sm-6 col-md-4\">\n  <header class=\"card-header\">\n    <ng-content select=\"[card-header]\"></ng-content>\n  </header>\n  <main class=\"card-main\">\n    <ng-content select=\"[card-content]\"></ng-content>\n  </main>\n  <footer class=\"card-footer\">\n    <ng-content select=\"[card-footer]\"></ng-content>\n  </footer>\n</div>"
+module.exports = "<div class=\"card col-xs-12 col-sm-6 col-md-4\">\r\n  <header class=\"card-header\">\r\n    <ng-content select=\"[card-header]\"></ng-content>\r\n  </header>\r\n  <main class=\"card-main\">\r\n    <ng-content select=\"[card-content]\"></ng-content>\r\n  </main>\r\n  <footer class=\"card-footer\">\r\n    <ng-content select=\"[card-footer]\"></ng-content>\r\n  </footer>\r\n</div>"
 
 /***/ }),
 
@@ -646,7 +1782,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/tenant-management/tenant-card/tenant-card.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n  <div>T: {{item.Name}}</div>\n</div>\n<app-card>\n  <div card-header>Tenant: {{item.Name}}</div>\n  <div card-content>\n    <dl>\n      <dt>Name</dt>\n      <dd>{{item.Name}}</dd>\n      <dt>Zipcode</dt>\n      <dd>{{item.Zipcode}}</dd>\n      <dt>City</dt>\n      <dd>{{item.City}}</dd>\n    </dl>\n  </div>\n  <div card-footer>\n    <button [routerLink]=\"['/tenants/' + item._id]\">Edit</button>\n    <button>Delete</button>\n  </div>\n</app-card>"
+module.exports = "<app-card>\r\n  <div card-header>Tenant: {{item.Name}}</div>\r\n  <div card-content>\r\n    <dl>\r\n      <dt>Name</dt>\r\n      <dd>{{item.Name}}</dd>\r\n      <dt>Zipcode</dt>\r\n      <dd>{{item.Zipcode}}</dd>\r\n      <dt>City</dt>\r\n      <dd>{{item.City}}</dd>\r\n    </dl>\r\n  </div>\r\n  <div card-footer>\r\n    <button [routerLink]=\"['/tenants/' + item._id]\">Edit</button>\r\n    <button>Delete</button>\r\n  </div>\r\n</app-card>"
 
 /***/ }),
 
@@ -711,7 +1847,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/tenant-management/tenant-edit/tenant-edit.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<header>\n  <h1>Tenants</h1>\n  <h2>Edit tenant {{tenant.Name}}</h2>\n</header>\n<main>\n  <form>\n    <div class=\"form-group\">\n      <label>Name</label>\n      <input [(ngModel)]=\"tenant.Name\" name=\"name\" class=\"form-control\">\n    </div>\n    <div class=\"form-group\">\n      <label>Address</label>\n      <input [(ngModel)]=\"tenant.Address1\" name=\"address1\" class=\"form-control\">\n    </div>\n    <div class=\"form-group\">\n      <label></label>\n      <input [(ngModel)]=\"tenant.Address2\" name=\"address2\" class=\"form-control\">\n    </div>\n    <div class=\"form-group\">\n      <label></label>\n      <input [(ngModel)]=\"tenant.Address3\" name=\"address3\" class=\"form-control\">\n    </div>\n    <div class=\"form-group\">\n      <label>Zip code</label>\n      <input [(ngModel)]=\"tenant.Zipcode\" name=\"zipcode\" class=\"form-control\">\n    </div>\n    <div class=\"form-group\">\n      <label>City</label>\n      <input [(ngModel)]=\"tenant.City\" name=\"city\" class=\"form-control\">\n    </div>\n    <div class=\"form-group\">\n      <label>Phone number</label>\n      <input [(ngModel)]=\"tenant.Phonenumber\" name=\"phonenumber\" class=\"form-control\">\n    </div>\n    <div class=\"form-group\">\n      <label>IBAN</label>\n      <input [(ngModel)]=\"tenant.IBAN\" name=\"iban\" class=\"form-control\">\n    </div>\n    <div class=\"form-group\">\n      <label>BIC</label>\n      <input [(ngModel)]=\"tenant.BIC\" name=\"bic\" class=\"form-control\">\n    </div>\n    <div class=\"form-group\">\n      <label>Invoice number scheme</label>\n      <input [(ngModel)]=\"tenant.InvoiceNumberScheme\" name=\"invoiceNumberScheme\" class=\"form-control\">\n    </div>\n    <div class=\"form-group\">\n      <label></label>\n      <input [(ngModel)]=\"tenant.TaxIdentificationNumber\" name=\"taxIdentificationNumber\" class=\"form-control\">\n    </div>\n    <button class=\"btn btn-default\" (click)=\"save()\">Save</button>\n  </form>\n</main>"
+module.exports = "<header>\r\n  <h1>Tenants</h1>\r\n  <h2>Edit tenant {{tenant.Name}}</h2>\r\n</header>\r\n<main>\r\n  <form>\r\n    <div class=\"form-group\">\r\n      <label>Name</label>\r\n      <input [(ngModel)]=\"tenant.Name\" name=\"name\" class=\"form-control\">\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label>Address</label>\r\n      <input [(ngModel)]=\"tenant.Address1\" name=\"address1\" class=\"form-control\">\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label></label>\r\n      <input [(ngModel)]=\"tenant.Address2\" name=\"address2\" class=\"form-control\">\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label></label>\r\n      <input [(ngModel)]=\"tenant.Address3\" name=\"address3\" class=\"form-control\">\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label>Zip code</label>\r\n      <input [(ngModel)]=\"tenant.Zipcode\" name=\"zipcode\" class=\"form-control\">\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label>City</label>\r\n      <input [(ngModel)]=\"tenant.City\" name=\"city\" class=\"form-control\">\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label>Phone number</label>\r\n      <input [(ngModel)]=\"tenant.Phonenumber\" name=\"phonenumber\" class=\"form-control\">\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label>IBAN</label>\r\n      <input [(ngModel)]=\"tenant.IBAN\" name=\"iban\" class=\"form-control\">\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label>BIC</label>\r\n      <input [(ngModel)]=\"tenant.BIC\" name=\"bic\" class=\"form-control\">\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label>Invoice number scheme</label>\r\n      <input [(ngModel)]=\"tenant.InvoiceNumberScheme\" name=\"invoiceNumberScheme\" class=\"form-control\">\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label></label>\r\n      <input [(ngModel)]=\"tenant.TaxIdentificationNumber\" name=\"taxIdentificationNumber\" class=\"form-control\">\r\n    </div>\r\n    <button class=\"btn btn-default\" (click)=\"save()\">Save</button>\r\n  </form>\r\n</main>"
 
 /***/ }),
 
@@ -840,7 +1976,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/tenant-management/tenant-management.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  tenant-management works!\n</p>"
+module.exports = "<p>\r\n  tenant-management works!\r\n</p>"
 
 /***/ }),
 
@@ -989,7 +2125,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/tenant-management/tenant-search/tenant-search.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<header>\n  <h1>Tenants</h1>\n</header>\n<main>\n  <div>\n    <h2>Search</h2>\n    <form>\n      <div class=\"form-row\">\n        <label>Name</label>\n        <input [(ngModel)]=\"name\" name=\"name\" class=\"form-control\" class=\"form-control\">\n      </div>\n      <div class=\"form-row\">\n        <button (click)=\"search()\" class=\"btn btn-default\">Search</button>\n      </div>\n      <div class=\"form-row\">\n          <button (click)=\"new()\" class=\"btn btn-default\">New</button>\n        </div>\n    </form>\n  </div>\n  <div *ngFor=\"let t of tenants\">\n    <app-tenant-card [item]=\"t\">\n\n    </app-tenant-card>\n  </div>\n</main>"
+module.exports = "<header>\r\n  <h1>Tenants</h1>\r\n</header>\r\n<main>\r\n  <div>\r\n    <h2>Search</h2>\r\n    <form>\r\n      <div class=\"form-row\">\r\n        <label>Name</label>\r\n        <input [(ngModel)]=\"name\" name=\"name\" class=\"form-control\" class=\"form-control\">\r\n      </div>\r\n      <div class=\"form-row\">\r\n        <button (click)=\"search()\" class=\"btn btn-default\">Search</button>\r\n      </div>\r\n      <div class=\"form-row\">\r\n          <button (click)=\"new()\" class=\"btn btn-default\">New</button>\r\n        </div>\r\n    </form>\r\n  </div>\r\n  <div *ngFor=\"let t of tenants\">\r\n    <app-tenant-card [item]=\"t\">\r\n\r\n    </app-tenant-card>\r\n  </div>\r\n</main>"
 
 /***/ }),
 
@@ -1159,7 +2295,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/user-management/user-management.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  user-management works!\n</p>"
+module.exports = "<p>\r\n  user-management works!\r\n</p>"
 
 /***/ }),
 
@@ -1263,7 +2399,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/user-management/user-search/user-search.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  user-search works!\n</p>"
+module.exports = "<p>\r\n  user-search works!\r\n</p>"
 
 /***/ }),
 

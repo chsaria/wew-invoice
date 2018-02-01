@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './Login/Login.component';
 import { UserSearchComponent } from './user-management/user-search/user-search.component';
+import { InvoiceSearchComponent } from './invoice-management/invoice-search/invoice-search.component';
 
 export const APP_ROUTES: Routes = [
     {
@@ -14,6 +15,10 @@ export const APP_ROUTES: Routes = [
     {
         path: 'home',
         component: HomeComponent
+    },
+    {
+        path: 'invoices',
+        component: InvoiceSearchComponent
     },
     {
         path: 'tenants',
