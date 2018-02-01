@@ -2,11 +2,15 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const Invoice = require('../models/Invoice.js');
+const Customer = require('../models/Customer.js');
 
 /* GET all invoices */
 router.get('/', function(req, res, next){
     Invoice.find(function(err, invoices){
         if(err) return next(err);
+        for(var i = 0; i < invoices.length; i++){
+            invoices[i].Customer_id = invoices[i].Customer._id;
+        }
         res.json(invoices);
     });
 });
@@ -21,12 +25,34 @@ router.get('/:id', function(req, res, next){
 
 /* POST new invoice */
 router.post('/', function(req, res, next){
+    console.log("body:");
+    console.log(req.body);
     var newInvoice = req.body;
     if(typeof newInvoice._id !== 'undefined')
     delete newInvoice._id;
-    Invoice.create(newInvoice, function(err, post){
+    delete newInvoice.CreatedAtUtc;
+    delete newInvoice.ModifiedAtUtc;
+    var existingInvoices = Invoice.find(function(err, invoices){
         if(err) return next(err);
-        res.json(post);
+        var invNumber = 1;
+        for(var i = 0; i < invoices.length; i++){
+            if(invoices[i].InvoiceNumber * 1 > invNumber){
+                invNumber = invoice[i].InvoiceNumber * 1 + 1;
+            }
+        }
+        newInvoice.InvoiceNumber = invNumber;
+        Customer.findById(newInvoice.Customer_id, function(err, customer){
+            if(err) return next(err);
+            newInvoice.Customer = customer;
+            console.log("posted invoice:");
+            console.log(newInvoice);
+            Invoice.create(newInvoice, function(err, post){
+                if(err) return next(err);
+                console.log("saved invoice:");
+                console.log(post);
+                res.json(post);
+            });
+        });
     });
 });
 

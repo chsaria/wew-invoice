@@ -1,0 +1,17 @@
+<app-card>
+  <div card-header>Invoice: {{item.InvoiceNumber}}</div>
+  <div card-content>
+    <dl>
+      <dt>Invoice number</dt>
+      <dd>{{item.InvoiceNumber}}</dd>
+      <dt>Date</dt>
+      <dd>{{item.CreatedAtUtc | date: 'dd.MM.yyyy'}}</dd>
+      <dt>Amount</dt>
+      <dd>{{sum()}}</dd>
+    </dl>
+  </div>
+  <div card-footer>
+    <button [routerLink]="['/invoices/' + item._id]">Edit</button>
+    <button (click)="deleteMe()">Delete</button>
+  </div>
+</app-card>

@@ -6,8 +6,8 @@ var InvoiceSchema = new mongoose.Schema({
     CustomerReference: String,
     Discount: Number,
     Customer: { type:mongoose.Schema.Types.ObjectId, ref: 'Customer' },
-    CreatedAtUtc: { type: Date, default: Date.now },
-    ModifiedAtUtc: { type: Date, default: Date.now },
+    CreatedAtUtc: { type: Date, default: Date.now() },
+    ModifiedAtUtc: { type: Date, default: Date.now() },
     PaidAtUtc: { type: Date },
     CancelledAtUtc: { type: Date }
 });

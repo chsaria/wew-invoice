@@ -4,8 +4,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './Login/Login.component';
 import { UserSearchComponent } from './user-management/user-search/user-search.component';
-import { PositionSearchComponent } from './position-management/position-search/position-search.component';
+<<<<<<< HEAD
 import { InvoiceSearchComponent } from './invoice-management/invoice-search/invoice-search.component';
+=======
+import { PositionSearchComponent } from './position-management/position-search/position-search.component';
+>>>>>>> f02b03805bcfa076d8c88e5152ba6e0d65d7efba
 
 export const APP_ROUTES: Routes = [
     {
