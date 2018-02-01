@@ -18,9 +18,24 @@ import { LineItem } from '../../entities/lineitem';
 export class InvoiceEditComponent implements OnInit {
 
   id: string;
-  invoice: Invoice;
+  invoice: Invoice = {
+    _id: '',
+    InvoiceNumber: '',
+    Customer: null,
+    Customer_id: '',
+    CustomerReference: '',
+    Comment: '',
+    CreatedAtUtc: null,
+    ModifiedAtUtc: null,
+    LineItems: [],
+    PaidAtUtc: null,
+    CancelledAtUtc: null,
+    Discount: 0
+  };
+
   errors: string;
-  currentAddPosition: Position;
+  // currentAddPosition: Position;
+  currentAddPositionId: string;
 
   positions: Position[] = [];
   customers: Customer[] = [];
@@ -35,17 +50,12 @@ export class InvoiceEditComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(
       params => {
-        console.log('1');
         this.id = params['id'];
-
-        console.log('2');
 
         this.customerService
         .find('')
         .subscribe(
           (customers) => {
-            console.log('got customers');
-            console.log(customers);
             this.customers = customers;
           },
           (errResp) => {
@@ -65,29 +75,12 @@ export class InvoiceEditComponent implements OnInit {
         );
 
         if (this.id === '') {
-          console.log('3');
           return;
         } else if (this.id === 'new') {
-          console.log('4');
-          this.invoice = {
-            _id: '',
-            InvoiceNumber: '',
-            Customer_id: '',
-            CustomerReference: '',
-            Comment: '',
-            CreatedAtUtc: null,
-            ModifiedAtUtc: null,
-            LineItems: [],
-            PaidAtUtc: null,
-            CancelledAtUtc: null,
-            Discount: 0
-          };
-          console.log('5');
         } else {
-          console.log('6');
           this.invoiceService.findById(this.id).subscribe(
-            invoice => { console.log('7'); this.invoice = invoice; this.errors = ''; },
-            error => { console.log('8'); this.errors = 'Error loading invoice'; }
+            invoice => { this.invoice = invoice; this.errors = ''; },
+            error => { this.errors = 'Error loading invoice'; }
           );
         }
       }
@@ -99,35 +92,48 @@ export class InvoiceEditComponent implements OnInit {
       return 0;
     }
 
-    let tax = 1;
+    let tax = 100;
 
     for (let i = 0; i < this.positions.length; i++) {
       if (this.positions[i]._id === lineItem.Position_id) {
-        tax = this.positions[i].TaxPercentage + 1;
+        tax = this.positions[i].TaxPercentage + 100;
         break;
       }
     }
-    return lineItem.NetPrice * tax * lineItem.Count;
+    console.log(lineItem.NetPrice);
+    console.log(tax);
+    return lineItem.NetPrice * (tax / 100) * lineItem.Count;
   }
 
   addItem() {
-    if (this.invoice !== null && this.currentAddPosition !== null) {
-      for (let i = 0; i < this.invoice.LineItems.length; i++) {
-        if (this.invoice.LineItems[i].Position_id === this.currentAddPosition._id) {
-          this.invoice.LineItems[i].Count += 1;
-          return;
+    if (this.invoice !== null && this.currentAddPositionId !== null && this.currentAddPositionId !== '') {
+      if (this.invoice.LineItems === undefined || this.invoice.LineItems === null) {
+        this.invoice.LineItems = [];
+      } else {
+        for (let i = 0; i < this.invoice.LineItems.length; i++) {
+          if (this.invoice.LineItems[i].Position_id === this.currentAddPositionId) {
+            this.invoice.LineItems[i].Count += 1;
+            return;
+          }
         }
       }
-      console.log(this.currentAddPosition);
+      console.log(this.currentAddPositionId);
+      let pos = null;
+      for (let i = 0; i < this.positions.length; i++) {
+        if (this.positions[i]._id === this.currentAddPositionId) {
+          pos = this.positions[i];
+          break;
+        }
+      }
       this.invoice.LineItems.push({
         _id: '',
         Comment: '',
-        NetPrice: this.currentAddPosition.NetDefaultPrice,
-        TaxPercentage: this.currentAddPosition.TaxPercentage,
-        Count: this.currentAddPosition.DefaultCount,
-        Position: this.currentAddPosition,
+        NetPrice: pos.NetDefaultPrice,
+        TaxPercentage: pos.TaxPercentage,
+        Count: pos.DefaultCount,
+        Position: pos,
         Invoice_id: this.invoice._id,
-        Position_id: this.currentAddPosition._id,
+        Position_id: this.currentAddPositionId,
         CreatedAtUtc: null,
         ModifiedAtUtc: null
       });
@@ -148,6 +154,7 @@ export class InvoiceEditComponent implements OnInit {
       invoice => {
         this.invoice = invoice;
         this.errors = 'Creating was successful!';
+        this.router.navigate(['/invoices']);
       },
       err => {
         this.errors = 'Error saving invoice';
@@ -160,6 +167,7 @@ export class InvoiceEditComponent implements OnInit {
       invoice => {
         this.invoice = invoice;
         this.errors = 'Updating was successful!';
+        this.router.navigate(['/invoices']);
       },
       err => {
         this.errors = 'Error saving invoice';

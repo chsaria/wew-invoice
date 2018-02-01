@@ -911,7 +911,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/invoice-management/invoice-card/invoice-card.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-card>\n  <div card-header>Invoice: {{item.InvoiceNumber}}</div>\n  <div card-content>\n    <dl>\n      <dt>Invoice number</dt>\n      <dd>{{item.InvoiceNumber}}</dd>\n      <dt>Date</dt>\n      <dd>{{item.CreatedAtUtc | date: 'dd.MM.yyyy'}}</dd>\n      <dt>Amount</dt>\n      <dd>{{sum()}}</dd>\n    </dl>\n  </div>\n  <div card-footer>\n    <button [routerLink]=\"['/invoices/' + item._id]\">Edit</button>\n    <button (click)=\"deleteMe()\">Delete</button>\n  </div>\n</app-card>"
+module.exports = "<app-card>\n  <div card-header>Invoice: {{item.InvoiceNumber}}</div>\n  <div card-content>\n    <dl>\n      <dt>Invoice number</dt>\n      <dd>{{item.InvoiceNumber}}</dd>\n      <dt>Customer</dt>\n      <dd>{{item.Customer.Name}}</dd>\n      <dt>Date</dt>\n      <dd>{{item.CreatedAtUtc | date: 'dd.MM.yyyy'}}</dd>\n      <dt>Amount</dt>\n      <dd>{{sum()}}</dd>\n    </dl>\n  </div>\n  <div card-footer>\n    <button [routerLink]=\"['/invoices/' + item._id]\">Edit</button>\n    <button (click)=\"deleteMe()\">Delete</button>\n  </div>\n</app-card>"
 
 /***/ }),
 
@@ -1003,7 +1003,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/invoice-management/invoice-edit/invoice-edit.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<header>\n  <h1>Invoices</h1>\n  <h2>Edit invoice {{invoice.InvoiceNumber}}</h2>\n</header>\n<main>\n  <form>\n    <div class=\"form-group\">\n      <label>Invoice number</label>\n      <input [ngModel]=\"invoice.InvoiceNumber\" name=\"invoicenumber\" class=\"form-control\" disabled=\"disabled\">\n    </div>\n    <div class=\"form-group\">\n      <label>Date</label>\n      <input [ngModel]=\"invoice.CreatedAtUtc | date: 'dd.MM.yyyy'\" name=\"createdatutc\" class=\"form-control\" disabled=\"disabled\">\n    </div>\n    <div class=\"form-group\">\n      <label>Customer</label>\n      <select [(ngModel)]=\"invoice.Customer_id\" class=\"form-control\">\n        <option *ngFor=\"let customer of customers\" [value]=\"customer._id\">{{customer.Name}}</option>\n      </select>\n    </div>\n    <div class=\"form-group\">\n      <label>Customer reference</label>\n      <input [(ngModel)]=\"invoice.CustomerReference\" name=\"customerReference\" class=\"form-control\">\n    </div>\n    <div class=\"form-group\">\n      <label>Comment</label>\n      <input [(ngModel)]=\"invoice.Comment\" name=\"comment\" class=\"form-control\">\n    </div>\n    <div>\n      <p>Items</p>\n      <div class=\"form-group\">\n        <label>Add item</label>\n        <select [(ngModel)]=\"currentAddPosition\" class=\"form-control\" [ngModelOptions]=\"{standalone:true}\">\n          <option *ngFor=\"let position of positions\" [value]=\"position._id\">{{position.Name}}</option>\n        </select>\n        <button class=\"btn btn-default\" (click)=\"addItem()\">+</button>\n      </div>\n      <table>\n        <thead>\n          <th>Short</th>\n          <th>Name</th>\n          <th>Comment</th>\n          <th>Amount</th>\n          <th>NetPrice</th>\n          <th>Sum</th>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let lineitem of invoice.LineItems\">\n            <td>{{lineitem.Position.Short}}</td>\n            <td>{{lineitem.Position.Name}}</td>\n            <td><input [(ngModel)]=\"lineitem.Comment\" class=\"form-control\"></td>\n            <td><input [(ngModel)]=\"lineitem.Count\" class=\"form-control\"></td>\n            <td><input [(ngModel)]=\"lineitem.NetPrice\" class=\"form-control\"></td>\n            <td>{{getItemSum(lineitem)}}</td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n    <button class=\"btn btn-default\" (click)=\"save()\">Save</button>\n  </form>\n</main>"
+module.exports = "<header>\n  <h1>Invoices</h1>\n  <h2>Edit invoice {{invoice.InvoiceNumber}}</h2>\n</header>\n<main>\n  <form #f=\"ngForm\">\n    <div class=\"form-group\">\n      <label>Invoice number</label>\n      {{invoice.InvoiceNumber}}\n      <!--<input [(ngModel)]=\"invoice.InvoiceNumber\" name=\"invoicenumber\" class=\"form-control\">-->\n    </div>\n    <div class=\"form-group\">\n      <label>Date</label>\n      {{invoice.CreatedAtUtc | date: 'dd.MM.yyyy'}}\n      <!--<input [(ngModel)]=\"invoice.CreatedAtUtc | date: 'dd.MM.yyyy'\" name=\"createdatutc\" class=\"form-control\" disabled=\"disabled\">-->\n    </div>\n    <div class=\"form-group\">\n      <label>Customer</label>\n      <select [(ngModel)]=\"invoice.Customer\" class=\"form-control\" name=\"customerName\" required>\n        <option *ngFor=\"let customer of customers\" [value]=\"customer._id\">{{customer.Name}}</option>\n      </select>\n      <div class=\"alert\" *ngIf=\"f?.controls['customerName']?.hasError('required')\">Customer is required.</div>\n    </div>\n    <div class=\"form-group\">\n      <label>Customer reference</label>\n      <input [(ngModel)]=\"invoice.CustomerReference\" name=\"customerReference\" class=\"form-control\">\n    </div>\n    <div class=\"form-group\">\n      <label>Comment</label>\n      <input [(ngModel)]=\"invoice.Comment\" name=\"comment\" class=\"form-control\">\n    </div>\n    <div>\n      <p>Items</p>\n      <div class=\"form-group\">\n        <label>Add item</label>\n        <select [(ngModel)]=\"currentAddPositionId\" class=\"form-control\" [ngModelOptions]=\"{standalone:true}\">\n          <option *ngFor=\"let position of positions\" [value]=\"position._id\">{{position.Name}}</option>\n        </select>\n        <button class=\"btn btn-default\" (click)=\"addItem()\">+</button>\n      </div>\n      <table>\n        <thead>\n          <th>Short</th>\n          <th>Name</th>\n          <th>Comment</th>\n          <th>Amount</th>\n          <th>NetPrice</th>\n          <th>Sum</th>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let lineitem of invoice.LineItems\">\n            <td><a [routerLink]=\"['/positions/' + lineitem.Position._id]\">{{lineitem.Position.Short}}</a></td>\n            <td><a [routerLink]=\"['/positions/' + lineitem.Position._id]\">{{lineitem.Position.Name}}</a></td>\n            <td><input [(ngModel)]=\"lineitem.Comment\" class=\"form-control\" [name]=\"lineitem.Position._id + '_comment'\"></td>\n            <td><input [(ngModel)]=\"lineitem.Count\" class=\"form-control\" [name]=\"lineitem.Position._id + '_count'\"></td>\n            <td><input [(ngModel)]=\"lineitem.NetPrice\" class=\"form-control\" [name]=\"lineitem.Position._id + '_netprice'\"></td>\n            <td>{{getItemSum(lineitem)}}</td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n    <button class=\"btn btn-default\" (click)=\"save()\">Save</button>\n  </form>\n</main>"
 
 /***/ }),
 
@@ -1038,20 +1038,30 @@ var InvoiceEditComponent = (function () {
         this.customerService = customerService;
         this.router = router;
         this.route = route;
+        this.invoice = {
+            _id: '',
+            InvoiceNumber: '',
+            Customer: null,
+            Customer_id: '',
+            CustomerReference: '',
+            Comment: '',
+            CreatedAtUtc: null,
+            ModifiedAtUtc: null,
+            LineItems: [],
+            PaidAtUtc: null,
+            CancelledAtUtc: null,
+            Discount: 0
+        };
         this.positions = [];
         this.customers = [];
     }
     InvoiceEditComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.route.params.subscribe(function (params) {
-            console.log('1');
             _this.id = params['id'];
-            console.log('2');
             _this.customerService
                 .find('')
                 .subscribe(function (customers) {
-                console.log('got customers');
-                console.log(customers);
                 _this.customers = customers;
             }, function (errResp) {
                 console.error('Error loading customers', errResp);
@@ -1064,29 +1074,12 @@ var InvoiceEditComponent = (function () {
                 console.error('Error loading positions', errResp);
             });
             if (_this.id === '') {
-                console.log('3');
                 return;
             }
             else if (_this.id === 'new') {
-                console.log('4');
-                _this.invoice = {
-                    _id: '',
-                    InvoiceNumber: '',
-                    Customer_id: '',
-                    CustomerReference: '',
-                    Comment: '',
-                    CreatedAtUtc: null,
-                    ModifiedAtUtc: null,
-                    LineItems: [],
-                    PaidAtUtc: null,
-                    CancelledAtUtc: null,
-                    Discount: 0
-                };
-                console.log('5');
             }
             else {
-                console.log('6');
-                _this.invoiceService.findById(_this.id).subscribe(function (invoice) { console.log('7'); _this.invoice = invoice; _this.errors = ''; }, function (error) { console.log('8'); _this.errors = 'Error loading invoice'; });
+                _this.invoiceService.findById(_this.id).subscribe(function (invoice) { _this.invoice = invoice; _this.errors = ''; }, function (error) { _this.errors = 'Error loading invoice'; });
             }
         });
     };
@@ -1094,33 +1087,47 @@ var InvoiceEditComponent = (function () {
         if (lineItem === null) {
             return 0;
         }
-        var tax = 1;
+        var tax = 100;
         for (var i = 0; i < this.positions.length; i++) {
             if (this.positions[i]._id === lineItem.Position_id) {
-                tax = this.positions[i].TaxPercentage + 1;
+                tax = this.positions[i].TaxPercentage + 100;
                 break;
             }
         }
-        return lineItem.NetPrice * tax * lineItem.Count;
+        console.log(lineItem.NetPrice);
+        console.log(tax);
+        return lineItem.NetPrice * (tax / 100) * lineItem.Count;
     };
     InvoiceEditComponent.prototype.addItem = function () {
-        if (this.invoice !== null && this.currentAddPosition !== null) {
-            for (var i = 0; i < this.invoice.LineItems.length; i++) {
-                if (this.invoice.LineItems[i].Position_id === this.currentAddPosition._id) {
-                    this.invoice.LineItems[i].Count += 1;
-                    return;
+        if (this.invoice !== null && this.currentAddPositionId !== null && this.currentAddPositionId !== '') {
+            if (this.invoice.LineItems === undefined || this.invoice.LineItems === null) {
+                this.invoice.LineItems = [];
+            }
+            else {
+                for (var i = 0; i < this.invoice.LineItems.length; i++) {
+                    if (this.invoice.LineItems[i].Position_id === this.currentAddPositionId) {
+                        this.invoice.LineItems[i].Count += 1;
+                        return;
+                    }
                 }
             }
-            console.log(this.currentAddPosition);
+            console.log(this.currentAddPositionId);
+            var pos = null;
+            for (var i = 0; i < this.positions.length; i++) {
+                if (this.positions[i]._id === this.currentAddPositionId) {
+                    pos = this.positions[i];
+                    break;
+                }
+            }
             this.invoice.LineItems.push({
                 _id: '',
                 Comment: '',
-                NetPrice: this.currentAddPosition.NetDefaultPrice,
-                TaxPercentage: this.currentAddPosition.TaxPercentage,
-                Count: this.currentAddPosition.DefaultCount,
-                Position: this.currentAddPosition,
+                NetPrice: pos.NetDefaultPrice,
+                TaxPercentage: pos.TaxPercentage,
+                Count: pos.DefaultCount,
+                Position: pos,
                 Invoice_id: this.invoice._id,
-                Position_id: this.currentAddPosition._id,
+                Position_id: this.currentAddPositionId,
                 CreatedAtUtc: null,
                 ModifiedAtUtc: null
             });
@@ -1140,6 +1147,7 @@ var InvoiceEditComponent = (function () {
         this.invoiceService.create(this.invoice).subscribe(function (invoice) {
             _this.invoice = invoice;
             _this.errors = 'Creating was successful!';
+            _this.router.navigate(['/invoices']);
         }, function (err) {
             _this.errors = 'Error saving invoice';
         });
@@ -1149,6 +1157,7 @@ var InvoiceEditComponent = (function () {
         this.invoiceService.update(this.invoice).subscribe(function (invoice) {
             _this.invoice = invoice;
             _this.errors = 'Updating was successful!';
+            _this.router.navigate(['/invoices']);
         }, function (err) {
             _this.errors = 'Error saving invoice';
         });

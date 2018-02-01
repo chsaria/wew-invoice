@@ -1,4 +1,5 @@
-import { LineItem } from "./lineitem";
+import { LineItem } from './lineitem';
+import { Customer } from './customer';
 
 
 /* Client-model for an invoice */
@@ -9,6 +10,7 @@ export interface Invoice {
     Comment: string;
     CustomerReference: string;
     Discount: number;
+    Customer: Customer;
     Customer_id: string;
     CreatedAtUtc: Date;
     ModifiedAtUtc: Date;
