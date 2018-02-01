@@ -21,11 +21,55 @@ router.get('/', function(req, res, next){
 
     Invoice.find(searchObject, function(err, invoices){
         if(err) return next(err);
+        console.log(invoices);
+        let result = [];
         for(var i = 0; i < invoices.length; i++){
-            if(invoices[i].Customer !== null)
-                invoices[i].Customer_id = invoices[i].Customer._id;
+            let res = Object.assign({}, invoices[i]._doc);
+            if(res.Customer !== null)
+            {
+                res.Customer_id = res.Customer;
+                Customer.findById(res.Customer_id, function(err, cust){
+
+                    if(err){
+                        console.log(err);
+                        next(err);
+                    }
+                    res.Customer = cust;
+                    console.log(res);
+                    setTimeout(function()
+                    {
+                        result.push(res);
+                    }, 500);
+                });
+                LineItem.find({'Invoice': res._id}, function(err2, post2){
+                    console.log("getting line items");
+                    res.LineItems = [];
+                    
+                    if(err2) {
+                        console.log(err2);
+                    }else{
+                        console.log(post2);
+                        for(var i = 0; i < post2.length; i++){
+                            let liResult = Object.assign({}, post2[i]._doc);
+                            Position.findById(post2[i].Position, function(err, pos){
+                                if(err){
+                                    console.log(err);
+                                    next(err);
+                                }
+                                liResult.Position_id = liResult.Position;
+                                liResult.Position = pos;
+                                res.LineItems.push(liResult);
+                                console.log(res);
+                            });
+                        }
+                    }
+                });
+            }
         }
-        res.json(invoices);
+        setTimeout(function(){
+            res.json(result);
+        },1500);
+        //res.json(invoices);
     });
 });
 

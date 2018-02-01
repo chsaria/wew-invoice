@@ -44,7 +44,7 @@
           <th>Name</th>
           <th>Comment</th>
           <th>Amount</th>
-          <th>NetPrice</th>
+          <th>NetPrice [€]</th>
           <th>Sum</th>
         </thead>
         <tbody>
@@ -54,7 +54,7 @@
             <td><input [(ngModel)]="lineitem.Comment" class="form-control" [name]="lineitem.Position._id + '_comment'"></td>
             <td><input [(ngModel)]="lineitem.Count" class="form-control" [name]="lineitem.Position._id + '_count'"></td>
             <td><input [(ngModel)]="lineitem.NetPrice" class="form-control" [name]="lineitem.Position._id + '_netprice'"></td>
-            <td>{{getItemSum(lineitem)}}</td>
+            <td>{{getItemSum(lineitem)  | currency:'EUR' }}</td>
           </tr>
         </tbody>
       </table>

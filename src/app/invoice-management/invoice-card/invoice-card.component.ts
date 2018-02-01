@@ -31,7 +31,7 @@ export class InvoiceCardComponent implements OnInit {
     let sum = 0;
     for (let i = 0; i < this.item.LineItems.length; i++) {
       const curItem = this.item.LineItems[i];
-      sum += (curItem.NetPrice * (100 + curItem.TaxPercentage) * curItem.Count);
+      sum += (curItem.NetPrice * ((100 + curItem.TaxPercentage) / 100) * curItem.Count);
     }
     console.log('sum returning ' + sum);
     return sum;
