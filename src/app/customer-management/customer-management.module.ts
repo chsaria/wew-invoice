@@ -8,7 +8,7 @@ import { CustomerCardComponent } from './customer-card/customer-card.component';
 import { CustomerEditComponent } from './customer-edit/customer-edit.component';
 import { CustomerSearchComponent } from './customer-search/customer-search.component';
 import { CustomerManagementComponent } from './customer-management.component';
-import { CustomerService } from './customer-service/customer.service';
+import { CustomerService } from './customer.service';
 
 
 @NgModule({
