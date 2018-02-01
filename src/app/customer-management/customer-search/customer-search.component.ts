@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Customer } from '../../entities/customer';
-import { CustomerService } from '../customer-service/customer.service';
+import { CustomerService } from '../customer.service';
 
 @Component({
   selector: 'app-customer-search',
@@ -11,7 +11,7 @@ import { CustomerService } from '../customer-service/customer.service';
 })
 export class CustomerSearchComponent implements OnInit {
 
-  name:  string = '';
+  name: string = '';
 
   customers: Customer[] = [];
 
@@ -27,12 +27,12 @@ export class CustomerSearchComponent implements OnInit {
     this.customerService
       .find(this.name)
       .subscribe(
-        (customers) => {
-          this.customers = customers;
-        },
-        (errResp) => {
-          console.error('Error loading customers', errResp);
-        }
+      (customers) => {
+        this.customers = customers;
+      },
+      (errResp) => {
+        console.error('Error loading customers', errResp);
+      }
       );
   }
 
