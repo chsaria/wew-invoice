@@ -18,7 +18,12 @@
     </form>
   </div>
   <div *ngFor="let c of customers">
+<<<<<<< HEAD
     <app-customer-card [item]="c" (delete)="delete($event)">
+=======
+    <app-customer-card [item]="c">
+>>>>>>> fe0bf24b17f027a4f533d038d5b121220c5f4db7
+
     </app-customer-card>
   </div>
 </main>

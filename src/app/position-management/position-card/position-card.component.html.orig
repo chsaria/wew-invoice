@@ -1,0 +1,26 @@
+<app-card>
+  <div card-header>Position: {{item.Name}}</div>
+  <div card-content>
+    <dl>
+      <dt>Short</dt>
+      <dd>{{item.Short}}</dd>
+      <dt>Name</dt>
+      <dd>{{item.Name}}</dd>
+      <dt>NetDefaultPrice</dt>
+      <dd>{{item.NetDefaultPrice | currency:'EUR' }}</dd>
+      <dt>TaxPercentage</dt>
+      <dd>{{item.TaxPercentage}}%</dd>
+      <dt>Unit</dt>
+      <dd>{{item.Unit}}</dd>
+    </dl>
+  </div>
+  <div card-footer>
+<<<<<<< HEAD
+    <button [routerLink]="['/positions/' + item._id]">Edit</button>
+    <button (click)="deleteMe()">Delete</button>
+=======
+    <button [routerLink]="['/postitions/' + item._id]">Edit</button>
+    <button [routerLink]="['/postitions/' + item._id]">Delete</button>
+>>>>>>> fe0bf24b17f027a4f533d038d5b121220c5f4db7
+  </div>
+</app-card>

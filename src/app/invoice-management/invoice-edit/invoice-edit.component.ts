@@ -4,7 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Invoice } from '../../entities/invoice';
 import { Position } from '../../entities/position';
 import { InvoiceService } from '../invoice.service';
-import { CustomerService } from '../../customer-management/customer-service/customer.service';
+import { CustomerService } from '../../customer-management/customer.service';
 import { PositionService } from '../../position-management/position.service';
 import { Customer } from '../../entities/customer';
 import { DatePipe } from '@angular/common';

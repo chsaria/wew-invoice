@@ -409,7 +409,7 @@ module.exports = "  <header>\r\n    <h1>Customers</h1>\r\n    <h2>Edit customer 
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CustomerEditComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__customer_service_customer_service__ = __webpack_require__("../../../../../src/app/customer-management/customer-service/customer.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__customer_service__ = __webpack_require__("../../../../../src/app/customer-management/customer.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -489,7 +489,7 @@ var CustomerEditComponent = (function () {
             template: __webpack_require__("../../../../../src/app/customer-management/customer-edit/customer-edit.component.html"),
             styles: [__webpack_require__("../../../../../src/app/customer-management/customer-edit/customer-edit.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__customer_service_customer_service__["a" /* CustomerService */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__customer_service__["a" /* CustomerService */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]])
     ], CustomerEditComponent);
     return CustomerEditComponent;
 }());
@@ -574,7 +574,7 @@ var CustomerManagementComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__customer_edit_customer_edit_component__ = __webpack_require__("../../../../../src/app/customer-management/customer-edit/customer-edit.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__customer_search_customer_search_component__ = __webpack_require__("../../../../../src/app/customer-management/customer-search/customer-search.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__customer_management_component__ = __webpack_require__("../../../../../src/app/customer-management/customer-management.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__customer_service_customer_service__ = __webpack_require__("../../../../../src/app/customer-management/customer-service/customer.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__customer_service__ = __webpack_require__("../../../../../src/app/customer-management/customer.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -610,7 +610,7 @@ var CustomerManagementModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_8__customer_search_customer_search_component__["a" /* CustomerSearchComponent */]
             ],
             providers: [
-                __WEBPACK_IMPORTED_MODULE_10__customer_service_customer_service__["a" /* CustomerService */]
+                __WEBPACK_IMPORTED_MODULE_10__customer_service__["a" /* CustomerService */]
             ],
             exports: [
                 __WEBPACK_IMPORTED_MODULE_8__customer_search_customer_search_component__["a" /* CustomerSearchComponent */]
@@ -668,7 +668,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/customer-management/customer-search/customer-search.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<header>\r\n  <h1>Customers</h1>\r\n</header>\r\n<main>\r\n  <div>\r\n    <h2>Search</h2>\r\n    <form>\r\n      <div class=\"form-row\">\r\n        <label>Name</label>\r\n        <input [(ngModel)]=\"name\" name=\"name\" class=\"form-control\">\r\n      </div>\r\n      <div class=\"form-row\">\r\n        <button (click)=\"search()\" class=\"btn btn-default\">Search</button>\r\n      </div>\r\n      <div class=\"form-row\">\r\n        <button (click)=\"new()\" class=\"btn btn-default\">New</button>\r\n      </div>\r\n    </form>\r\n  </div>\r\n  <div *ngFor=\"let c of customers\">\r\n    <app-customer-card [item]=\"c\" (delete)=\"delete($event)\">\r\n\r\n    </app-customer-card>\r\n  </div>\r\n</main>\r\n"
+module.exports = "<header>\r\n  <h1>Customers</h1>\r\n</header>\r\n<main>\r\n  <div>\r\n    <h2>Search</h2>\r\n    <form>\r\n      <div class=\"form-row\">\r\n        <label>Name</label>\r\n        <input [(ngModel)]=\"name\" name=\"name\" class=\"form-control\">\r\n      </div>\r\n      <div class=\"form-row\">\r\n        <button (click)=\"search()\" class=\"btn btn-default\">Search</button>\r\n      </div>\r\n      <div class=\"form-row\">\r\n        <button (click)=\"new()\" class=\"btn btn-default\">New</button>\r\n      </div>\r\n    </form>\r\n  </div>\r\n  <div *ngFor=\"let c of customers\">\r\n    <app-customer-card [item]=\"c\" (delete)=\"delete($event)\">\r\n    </app-customer-card>\r\n  </div>\r\n</main>\r\n"
 
 /***/ }),
 
@@ -679,7 +679,7 @@ module.exports = "<header>\r\n  <h1>Customers</h1>\r\n</header>\r\n<main>\r\n  <
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CustomerSearchComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__customer_service_customer_service__ = __webpack_require__("../../../../../src/app/customer-management/customer-service/customer.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__customer_service__ = __webpack_require__("../../../../../src/app/customer-management/customer.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -741,9 +741,9 @@ var CustomerSearchComponent = (function () {
             selector: 'app-customer-search',
             template: __webpack_require__("../../../../../src/app/customer-management/customer-search/customer-search.component.html"),
             styles: [__webpack_require__("../../../../../src/app/customer-management/customer-search/customer-search.component.css")],
-            providers: [__WEBPACK_IMPORTED_MODULE_2__customer_service_customer_service__["a" /* CustomerService */]]
+            providers: [__WEBPACK_IMPORTED_MODULE_2__customer_service__["a" /* CustomerService */]]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__customer_service_customer_service__["a" /* CustomerService */], __WEBPACK_IMPORTED_MODULE_0__angular_router__["b" /* Router */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__customer_service__["a" /* CustomerService */], __WEBPACK_IMPORTED_MODULE_0__angular_router__["b" /* Router */]])
     ], CustomerSearchComponent);
     return CustomerSearchComponent;
 }());
@@ -752,7 +752,7 @@ var CustomerSearchComponent = (function () {
 
 /***/ }),
 
-/***/ "../../../../../src/app/customer-management/customer-service/customer.service.ts":
+/***/ "../../../../../src/app/customer-management/customer.service.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -789,8 +789,6 @@ var CustomerService = (function () {
         var url = '/customer/' + id;
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["c" /* HttpHeaders */]()
             .set('Accept', 'application/json');
-        /*const params = new HttpParams()
-                                .set('id', id);*/
         return this
             .http
             .get(url, { headers: headers });
@@ -808,8 +806,6 @@ var CustomerService = (function () {
         var url = '/customer/' + id;
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["c" /* HttpHeaders */]()
             .set('Accept', 'application/json');
-        /*const params = new HttpParams()
-                            .set('id', CustomerToSave.Id);*/
         return this
             .http
             .put(url, customerToSave, { headers: headers });
@@ -818,8 +814,6 @@ var CustomerService = (function () {
         var url = '/customer/' + id;
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["c" /* HttpHeaders */]()
             .set('Accept', 'application/json');
-        /*const params = new HttpParams()
-                            .set('id', id);*/
         return this
             .http
             .delete(url, { headers: headers });
@@ -1021,7 +1015,7 @@ module.exports = "<header>\n  <h1>Invoices</h1>\n  <h2>Edit invoice {{invoice.In
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__invoice_service__ = __webpack_require__("../../../../../src/app/invoice-management/invoice.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__customer_management_customer_service_customer_service__ = __webpack_require__("../../../../../src/app/customer-management/customer-service/customer.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__customer_management_customer_service__ = __webpack_require__("../../../../../src/app/customer-management/customer.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__position_management_position_service__ = __webpack_require__("../../../../../src/app/position-management/position.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1167,7 +1161,7 @@ var InvoiceEditComponent = (function () {
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__invoice_service__["a" /* InvoiceService */],
             __WEBPACK_IMPORTED_MODULE_4__position_management_position_service__["a" /* PositionService */],
-            __WEBPACK_IMPORTED_MODULE_3__customer_management_customer_service_customer_service__["a" /* CustomerService */],
+            __WEBPACK_IMPORTED_MODULE_3__customer_management_customer_service__["a" /* CustomerService */],
             __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */],
             __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]])
     ], InvoiceEditComponent);
