@@ -15,6 +15,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { LoginComponent } from './Login/Login.component';
 import { FormsModule } from '@angular/forms';
 import { PositionManagementModule } from './position-management/position-management.module';
+import { InvoiceManagementModule } from './invoice-management/invoice-management.module';
 
 @NgModule({
   declarations: [
